@@ -32,7 +32,7 @@ El proyecto  utilizará las siguientes tecnologías:
 - Framework: [Express.js](https://expressjs.com/)
 
 ## Diagrama Base de Datos
-![image](https://github.com/AngelVelasco1/admin_ecommerce/blob/main/diagrama.png)
+![image]
 
 ## Configuración
 
