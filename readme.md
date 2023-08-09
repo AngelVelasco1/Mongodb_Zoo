@@ -32,7 +32,6 @@ El proyecto  utilizará las siguientes tecnologías:
 - Framework: [Express.js](https://expressjs.com/)
 
 ## Diagrama Base de Datos
-![image]
 
 ## Configuración
 
