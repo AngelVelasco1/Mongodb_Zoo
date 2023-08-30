@@ -6,4 +6,8 @@ app.use(express.json());
 
 app.listen(CONFIG.server, () => {
     console.log(`Server listening on http://${CONFIG.server.hostname}:${CONFIG.server.port}`);
+<<<<<<< HEAD
 })
+=======
+})
+>>>>>>> david
