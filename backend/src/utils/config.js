@@ -8,9 +8,5 @@ export const CONFIG = {
     "password": process.env.PASSWORD,
     "db": process.env.DB,
     "key": process.env.JWT_SECRET
-<<<<<<< HEAD
 };
 
-=======
-};
->>>>>>> david
