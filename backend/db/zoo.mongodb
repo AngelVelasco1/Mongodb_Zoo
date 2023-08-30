@@ -1,1 +1,290 @@
+
 use("zoo_db");
+db.createCollection("counters");
+db.counters.insertMany([
+    { counter: "HabitatsId", sequence_value: 0 },
+    { counter: "ServicesId", sequence_value: 0 },
+    { counter: "AnimalsId", sequence_value: 0 },
+    { counter: "staffId", sequence_value: 0 },
+    { counter: "taco_shopId", sequence_value: 0 },
+    { counter: "emergenciesId", sequence_value: 0 }
+]);
+db.createCollection("Habitats", {
+    capped: true,
+    size: 10000,
+    max: 50,
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            additionalProperties: false,
+            required: [ "id", "name", "description", "weather", "residents", "assigned_personnel", "next_maintenance"],
+            properties: {
+                _id:{
+                    bsonType: "objectId"
+                },
+                id: {
+                    bsonType: "int"
+                },
+                name: {
+                    bsonType: "string"
+                },
+                description: {
+                    bsonType: "string"
+                },
+                weather: {
+                    bsonType: "string"
+                },
+                residents:{
+                    bsonType: "array",
+                    items: {
+                        bsonType: "string"
+                    }
+                },
+                assigned_personnel: {
+                    bsonType: "int"
+                },
+                next_maintenance: {
+                    bsonType: "string"
+                }
+            }
+        }
+    }
+});
+db.createCollection("Services", {
+    capped: true,
+    size: 10000,
+    max: 100,
+    validator: {
+        $jsonSchema:{
+            bsonType: "object",
+            additionalProperties: false,
+            required: ["id", "shop" ,"product_name", "id_staff", "date", "amount", "price"],
+            properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
+                id:{
+                    bsonType: "int"
+                }, 
+                shop:{
+                    bsonType: "string"
+                } ,
+                product_name:{
+                    bsonType: "string"
+                }, 
+                id_staff:{
+                    bsonType: "int"
+                }, 
+                date:{
+                    bsonType: "string"
+                }, 
+                amount:{
+                    bsonType: "int"
+                }, 
+                price:{
+                    bsonType: "int"
+                },
+                devolutions: {
+                    bsonType: "int"
+                }, 
+                reason: {
+                    bsonType: "string"
+                },
+                refund: {
+                    bsonType: "int"
+                }
+            }
+        }
+    }
+});
+db.createCollection("Animals", {
+    capped: true,
+    size: 30000,
+    max: 200,
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            additionalProperties: false,
+            required: ["id", "animal_name", "species", "aprox_age", "location", "origin", "vacune", "reason"],
+            properties: {
+                _id: {
+                    bsonType: "objectId"
+                }, 
+                id:{
+                    bsonType: "int"
+                }, 
+                animal_name: {
+                    bsonType: "string"
+                },
+                species: {
+                    bsonType: "string"
+                },
+                aprox_age: {
+                    bsonType: "int"
+                },
+                location: {
+                    bsonType: "string"
+                },
+                descendents: {
+                    bsonType: "array",
+                    items: {
+                        bsonType: "string"
+                    }
+                },
+                origin: {
+                    bsonType: "string"
+                },
+                vacune: {
+                    bsonType: "int"
+                },
+                entry_date: {
+                    bsonType: "string"
+                },
+                death_date: {
+                    bsonType: "string"
+                },
+                reason: {
+                    bsonType: "string"
+                }
+
+            }
+        }
+    }
+}); 
+db.createCollection("staff", {
+    capped: true, 
+    size: 20000,
+    max: 100,
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            additionalProperties: false,
+            required: ["id",
+                "full_name",
+                "start_contract",
+                "salary",
+                "eps",
+                "phone_number",
+                "emergency_contact"],
+            properties: {
+                _id: {
+                    bsonType: "objectId"
+                }, 
+                id: {
+                    bsonType: "int"
+                },
+                full_name: {
+                    bsonType: "string"
+                },
+                start_contract: {
+                    bsonType: "string"
+                },
+                salary: {
+                    bsonType: "number"
+                },
+                eps: {
+                    bsonType: "string"
+                },
+                phone_number: {
+                    bsonType: "number"
+                },
+                emergency_contact: {
+                    bsonType: "object",
+                    required: ["contact_name", "relationship", "contact_number"],
+                    properties: {
+                        contact_name: {
+                            bsonType: "string"
+                        },
+                        relationship: {
+                            bsonType: "string"
+                        }, 
+                        contact_number: {
+                            bsonType: "number"
+                        }
+                    }
+                }
+            }
+        }
+    }
+});
+db.createCollection("taco_shop", {
+    capped: true,
+    size: 20000,
+    max: 1000,
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            additionalProperties: false,
+            required: ["id",
+                "amount",
+                "date",
+                "seller",
+                "ticket_type",
+                "ticket_price",],
+            properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
+                id: {
+                    bsonType: "int"
+                },
+                amount: {
+                    bsonType: "int"
+                },
+                date: {
+                    bsonType: "string"
+                },
+                seller:{
+                    bsonType: "string"
+                },
+                ticket_type: {
+                    bsonType: "string"
+                },
+                ticket_price: {
+                    bsonType: "int"
+                }
+            }
+        }
+    }
+});
+db.createCollection("emergencies", {
+    capped: true,
+    size: 20000,
+    max: 1000,
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            additionalProperties: false,
+            required: ["id",
+                "id_animal",
+                "id_vet",
+                "description",
+                "date",
+                "emergency_type"],
+            properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
+                id: {
+                    bsonType: "int"
+                },
+                id_animal: {
+                    bsonType: "int"
+                },
+                id_vet: {
+                    bsonType: "int"
+                },
+                description:{
+                    bsonType: "string"
+                },
+                date: {
+                    bsonType: "string"
+                },
+                emergency_type: {
+                    bsonType: "string"
+                }
+            }
+        }
+    }
+})
+
