@@ -1,0 +1,746 @@
+use("zoo_db");
+function siguienteId(coleccion) {
+    const sequenceDocument = db.counters.findOneAndUpdate(
+        { counter: `${coleccion}Id` },
+        { $inc: { sequence_value: 1 } },
+        { returnDocument: "after" }
+    );
+    return sequenceDocument.sequence_value;
+};
+
+db.Habitats.insertMany([
+    {
+        "id": siguienteId("Habitats"),
+        "name": "Savannah",
+        "description": "Large open area with grasslands and scattered trees.",
+        "weather": "Tropical",
+        "residents": ["Lion", "Zebra", "Giraffe"],
+        "assigned_personnel": 3,
+        "next_maintenance": "2023-09-15"
+      },
+      {
+        "id": siguienteId("Habitats"),
+        "name": "Rainforest",
+        "description": "Lush and humid environment with dense vegetation.",
+        "weather": "Humid",
+        "residents": ["Monkey", "Parrot", "Jaguar"],
+        "assigned_personnel": 4,
+        "next_maintenance": "2023-09-20"
+      },
+      {
+        "id": siguienteId("Habitats"),
+        "name": "Aquarium",
+        "description": "Underwater exhibit with a variety of marine life.",
+        "weather": "Controlled",
+        "residents": ["Shark", "Octopus", "Turtle"],
+        "assigned_personnel": 5,
+        "next_maintenance": "2023-09-18"
+      },
+      {
+        "id": siguienteId("Habitats"),
+        "name": "Arctic",
+        "description": "Cold environment featuring animals adapted to icy conditions.",
+        "weather": "Cold",
+        "residents": ["Polar Bear", "Arctic Fox", "Seal"],
+        "assigned_personnel": 3,
+        "next_maintenance": "2023-09-22"
+      },
+      {
+        "id": siguienteId("Habitats"),
+        "name": "Desert",
+        "description": "Sandy habitat with cacti and desert-dwelling creatures.",
+        "weather": "Hot",
+        "residents": ["Camel", "Rattlesnake", "Scorpion"],
+        "assigned_personnel": 2,
+        "next_maintenance": "2023-09-16"
+      },
+      {
+        "id": siguienteId("Habitats"),
+        "name": "Aviary",
+        "description": "Enclosed habitat for a variety of bird species.",
+        "weather": "Controlled",
+        "residents": ["Eagle", "Owl", "Toucan"],
+        "assigned_personnel": 2,
+        "next_maintenance": "2023-09-19"
+      },
+      {
+        "id": siguienteId("Habitats"),
+        "name": "Serpentarium",
+        "description": "Habitat featuring a diverse collection of snakes and reptiles.",
+        "weather": "Controlled",
+        "residents": ["Anaconda", "Python", "Gecko"],
+        "assigned_personnel": 4,
+        "next_maintenance": "2023-09-17"
+      },
+      {
+        "id": siguienteId("Habitats"),
+        "name": "Primate House",
+        "description": "Enclosure for various primate species.",
+        "weather": "Controlled",
+        "residents": ["Chimpanzee", "Orangutan", "Lemur"],
+        "assigned_personnel": 3,
+        "next_maintenance": "2023-09-21"
+      },
+      {
+        "id": siguienteId("Habitats"),
+        "name": "Petting Zoo",
+        "description": "Interactive area where visitors can interact with domesticated animals.",
+        "weather": "Controlled",
+        "residents": ["Goat", "Rabbit", "Pony"],
+        "assigned_personnel": 2,
+        "next_maintenance": "2023-09-23"
+      },
+      {
+        "id": siguienteId("Habitats"),
+        "name": "Reptile House",
+        "description": "Diverse collection of reptiles from around the world.",
+        "weather": "Controlled",
+        "residents": ["Cobra", "Turtle", "Crocodile"],
+        "assigned_personnel": 4,
+        "next_maintenance": "2023-09-14"
+      }
+]);
+db.Animals.insertMany([
+    {
+        "id": siguienteId("Animals"),
+        "animal_name": "Simba",
+        "species": "Lion",
+        "aprox_age": 8,
+        "location": "Savannah",
+        "descendents": ["Cub 1", "Cub 2"],
+        "origin": "Captive breeding program",
+        "vacune": 1,
+        "entry_date": "2021-03-10",
+        "reason": "Captive bred"
+      },
+      {
+        "id": siguienteId("Animals"),
+        "animal_name": "Koko",
+        "species": "Gorilla",
+        "aprox_age": 15,
+        "location": "Rainforest",
+        "origin": "Rescue",
+        "vacune": 0,
+        "entry_date": "2018-05-20",
+        "death_date": "2023-07-15",
+        "reason": "Old age"
+      },
+      {
+        "id": siguienteId("Animals"),
+        "animal_name": "Nemo",
+        "species": "Clownfish",
+        "aprox_age": 2,
+        "location": "Aquarium",
+        "descendents": ["Offspring 1", "Offspring 2"],
+        "origin": "Captive bred",
+        "vacune": 0,
+        "entry_date": "2022-01-05",
+        "reason": "Aquatic exhibit"
+      },
+      {
+        "id": siguienteId("Animals"),
+        "animal_name": "Frost",
+        "species": "Polar Bear",
+        "aprox_age": 10,
+        "location": "Arctic",
+        "descendents": ["Cub"],
+        "origin": "Wild",
+        "vacune": 1,
+        "entry_date": "2019-11-30",
+        "reason": "Natural habitat"
+      },
+      {
+        "id": siguienteId("Animals"),
+        "animal_name": "Sandy",
+        "species": "Camel",
+        "aprox_age": 6,
+        "location": "Desert",
+        "descendents": ["Calf 1", "Calf 2"],
+        "origin": "Captive bred",
+        "vacune": 1,
+        "entry_date": "2020-07-18",
+        "reason": "Safari exhibit"
+      },
+      {
+        "id": siguienteId("Animals"),
+        "animal_name": "Feathers",
+        "species": "Eagle",
+        "aprox_age": 4,
+        "location": "Aviary",
+        "origin": "Rescue",
+        "vacune": 1,
+        "entry_date": "2021-09-22",
+        "reason": "Injured wing"
+      },
+      {
+        "id": siguienteId("Animals"),
+        "animal_name": "Slither",
+        "species": "Python",
+        "aprox_age": 6,
+        "location": "Serpentarium",
+        "descendents": ["Hatchling 1", "Hatchling 2"],
+        "origin": "Captive bred",
+        "vacune": 0,
+        "entry_date": "2020-03-15",
+        "reason": "Reptile exhibit"
+      },
+      {
+        "id": siguienteId("Animals"),
+        "animal_name": "Charlie",
+        "species": "Chimpanzee",
+        "aprox_age": 12,
+        "location": "Primate House",
+        "origin": "Captive bred",
+        "vacune": 1,
+        "entry_date": "2019-02-10",
+        "reason": "Primate conservation"
+      },
+      {
+        "id": siguienteId("Animals"),
+        "animal_name": "Fluffy",
+        "species": "Rabbit",
+        "aprox_age": 2,
+        "location": "Petting Zoo",
+        "descendents": ["Kit 1", "Kit 2"],
+        "origin": "Captive bred",
+        "vacune": 0,
+        "entry_date": "2022-04-05",
+        "reason": "Children's attraction"
+      },
+      {
+        "id": siguienteId("Animals"),
+        "animal_name": "Hiss",
+        "species": "Cobra",
+        "aprox_age": 5,
+        "location": "Reptile House",
+        "origin": "Wild",
+        "vacune": 0,
+        "entry_date": "2021-08-18",
+        "reason": "Venomous exhibit"
+      }, 
+      {
+        "id": siguienteId("Animals"),
+        "animal_name": "Luna",
+        "species": "Wolf",
+        "aprox_age": 4,
+        "location": "Arctic",
+        "descendents": ["Pup 1", "Pup 2"],
+        "origin": "Rescue",
+        "vacune": 1,
+        "entry_date": "2022-06-12",
+        "reason": "Wildlife conservation"
+      },
+      {
+        "id": siguienteId("Animals"),
+        "animal_name": "Patches",
+        "species": "Giraffe",
+        "aprox_age": 7,
+        "location": "Savannah",
+        "origin": "Captive bred",
+        "vacune": 0,
+        "entry_date": "2021-09-28",
+        "reason": "Zoo breeding program"
+      },
+      {
+        "id": siguienteId("Animals"),
+        "animal_name": "Rusty",
+        "species": "Rattlesnake",
+        "aprox_age": 3,
+        "location": "Desert",
+        "descendents": ["Juvenile 1", "Juvenile 2"],
+        "origin": "Wild",
+        "vacune": 0,
+        "entry_date": "2023-01-17",
+        "reason": "Reptile exhibit"
+      },
+      {
+        "id": siguienteId("Animals"),
+        "animal_name": "Oscar",
+        "species": "Orangutan",
+        "aprox_age": 10,
+        "location": "Primate House",
+        "origin": "Rescue",
+        "vacune": 1,
+        "entry_date": "2020-11-08",
+        "reason": "Orangutan conservation"
+      },
+      {
+        "id": siguienteId("Animals"),
+        "animal_name": "Spike",
+        "species": "Porcupine",
+        "aprox_age": 5,
+        "location": "Rainforest",
+        "descendents": ["Pup 1", "Pup 2"],
+        "origin": "Captive bred",
+        "vacune": 0,
+        "entry_date": "2022-03-25",
+        "reason": "Nocturnal exhibit"
+      },
+      {
+        "id": siguienteId("Animals"),
+        "animal_name": "Ziggy",
+        "species": "Zebra",
+        "aprox_age": 6,
+        "location": "Savannah",
+        "origin": "Captive bred",
+        "vacune": 1,
+        "entry_date": "2022-07-10",
+        "reason": "Striped exhibit"
+      },
+      {
+        "id": siguienteId("Animals"),
+        "animal_name": "Bubbles",
+        "species": "Dolphin",
+        "aprox_age": 12,
+        "location": "Aquarium",
+        "descendents": ["Calf"],
+        "origin": "Rescue",
+        "vacune": 0,
+        "entry_date": "2019-10-02",
+        "reason": "Marine exhibit"
+      },
+      {
+        "id": siguienteId("Animals"),
+        "animal_name": "Sasha",
+        "species": "Jaguar",
+        "aprox_age": 8,
+        "location": "Rainforest",
+        "origin": "Wild",
+        "vacune": 1,
+        "entry_date": "2021-05-15",
+        "reason": "Rainforest conservation"
+      },
+      {
+        "id": siguienteId("Animals"),
+        "animal_name": "Rocky",
+        "species": "Kangaroo",
+        "aprox_age": 3,
+        "location": "Savannah",
+        "descendents": ["Joey"],
+        "origin": "Captive bred",
+        "vacune": 0,
+        "entry_date": "2022-09-01",
+        "reason": "Australian exhibit"
+      },
+      {
+        "id": siguienteId("Animals"),
+        "animal_name": "Cleo",
+        "species": "Cheetah",
+        "aprox_age": 5,
+        "location": "Savannah",
+        "descendents": ["Cub"],
+        "origin": "Captive bred",
+        "vacune": 1,
+        "entry_date": "2020-12-03",
+        "reason": "Endangered species"
+      }
+]);
+db.Services.insertMany([
+    {
+        "id": siguienteId("Services"),
+        "shop": "Gift Shop",
+        "product_name": "Plush Toy",
+        "id_staff": 8,
+        "date": "2023-08-01",
+        "amount": 30,
+        "price": 10,
+        "devolutions": 2,
+        "reason": "Defective stitching",
+        "refund": 20
+      },
+      {
+        "id": siguienteId("Services"),
+        "shop": "Cafeteria",
+        "product_name": "Coffee",
+        "id_staff": 9,
+        "date": "2023-08-05",
+        "amount": 50,
+        "price": 3,
+        "devolutions": 1,
+        "reason": "Wrong order",
+        "refund": 3
+      },
+      {
+        "id": siguienteId("Services"),
+        "shop": "Taco Stand",
+        "product_name": "Taco Combo",
+        "id_staff": 10,
+        "date": "2023-08-10",
+        "amount": 20,
+        "price": 8
+      },
+      {
+        "id": siguienteId("Services"),
+        "shop": "Gift Shop",
+        "product_name": "Keychain",
+        "id_staff": 11,
+        "date": "2023-08-12",
+        "amount": 40,
+        "price": 5,
+        "devolutions": 4,
+        "reason": "Design flaw",
+        "refund": 15
+      },
+      {
+        "id": siguienteId("Services"),
+        "shop": "Cafeteria",
+        "product_name": "Sandwich",
+        "id_staff": 12,
+        "date": "2023-08-15",
+        "amount": 25,
+        "price": 6,
+        "devolutions": 1,
+        "reason": "Allergy concern",
+        "refund": 6
+      },
+      {
+        "id": siguienteId("Services"),
+        "shop": "Taco Stand",
+        "product_name": "Burrito",
+        "id_staff": 13,
+        "date": "2023-08-20",
+        "amount": 15,
+        "price": 7
+      },
+      {
+        "id": siguienteId("Services"),
+        "shop": "Gift Shop",
+        "product_name": "Postcard",
+        "id_staff": 14,
+        "date": "2023-08-25",
+        "amount": 100,
+        "price": 2,
+        "devolutions": 3,
+        "reason": "Print error",
+        "refund": 5
+      },
+      {
+        "id": siguienteId("Services"),
+        "shop": "Cafeteria",
+        "product_name": "Ice Cream",
+        "id_staff": 15,
+        "date": "2023-08-30",
+        "amount": 50,
+        "price": 4,
+        "devolutions": 2,
+        "reason": "Melted",
+        "refund": 8
+      },
+      {
+        "id": siguienteId("Services"),
+        "shop": "Taco Stand",
+        "product_name": "Nachos",
+        "id_staff": 16,
+        "date": "2023-09-05",
+        "amount": 10,
+        "price": 5
+      },
+      {
+        "id": siguienteId("Services"),
+        "shop": "Gift Shop",
+        "product_name": "Souvenir Mug",
+        "id_staff": 17,
+        "date": "2023-09-10",
+        "amount": 35,
+        "price": 8,
+        "devolutions": 1,
+        "reason": "Damaged packaging",
+        "refund": 7
+      }
+]);
+db.staff.insertMany([
+    {
+        "id": siguienteId("staff"),
+        "full_name": "Emily Johnson",
+        "start_contract": "2022-01-15",
+        "salary": 45000,
+        "eps": "HealthCare Inc.",
+        "phone_number": 1234567890,
+        "emergency_contact": {
+          "contact_name": "Michael Johnson",
+          "relationship": "Spouse",
+          "contact_number": 9876543210
+        }
+      },
+      {
+        "id": siguienteId("staff"),
+        "full_name": "Alex Rodriguez",
+        "start_contract": "2021-06-10",
+        "salary": 38000,
+        "eps": "HealthWell",
+        "phone_number": 5551234567,
+        "emergency_contact": {
+          "contact_name": "Sophia Rodriguez",
+          "relationship": "Sibling",
+          "contact_number": 5559876543
+        }
+      },
+      {
+        "id": siguienteId("staff"),
+        "full_name": "David Smith",
+        "start_contract": "2020-03-20",
+        "salary": 50000,
+        "eps": "CarePlus",
+        "phone_number": 6789012345,
+        "emergency_contact": {
+          "contact_name": "Linda Smith",
+          "relationship": "Parent",
+          "contact_number": 6785432109
+        }
+      },
+      {
+        "id": siguienteId("staff"),
+        "full_name": "Jessica Brown",
+        "start_contract": "2023-02-05",
+        "salary": 42000,
+        "eps": "HealthGuard",
+        "phone_number": 7890123456,
+        "emergency_contact": {
+          "contact_name": "Robert Brown",
+          "relationship": "Spouse",
+          "contact_number": 7896543210
+        }
+      },
+      {
+        "id": siguienteId("staff"),
+        "full_name": "Michael Williams",
+        "start_contract": "2022-09-15",
+        "salary": 40000,
+        "eps": "MediCare",
+        "phone_number": 8901234567,
+        "emergency_contact": {
+          "contact_name": "Jennifer Williams",
+          "relationship": "Parent",
+          "contact_number": 8907654321
+        }
+      },
+      {
+        "id": siguienteId("staff"),
+        "full_name": "Sarah Martinez",
+        "start_contract": "2021-03-10",
+        "salary": 36000,
+        "eps": "HealthPlus",
+        "phone_number": 9012345678,
+        "emergency_contact": {
+          "contact_name": "Daniel Martinez",
+          "relationship": "Sibling",
+          "contact_number": 9018765432
+        }
+      },
+      {
+        "id": siguienteId("staff"),
+        "full_name": "Ryan Johnson",
+        "start_contract": "2023-04-22",
+        "salary": 48000,
+        "eps": "WellnessCare",
+        "phone_number": 1237894560,
+        "emergency_contact": {
+          "contact_name": "Olivia Johnson",
+          "relationship": "Spouse",
+          "contact_number": 1234567890
+        }
+      },
+      {
+        "id": siguienteId("staff"),
+        "full_name": "Michelle Smith",
+        "start_contract": "2020-12-01",
+        "salary": 42000,
+        "eps": "HealthGuard",
+        "phone_number": 3456789012,
+        "emergency_contact": {
+          "contact_name": "Kevin Smith",
+          "relationship": "Sibling",
+          "contact_number": 3450123456
+        }
+      },
+      {
+        "id": siguienteId("staff"),
+        "full_name": "Christopher Davis",
+        "start_contract": "2023-01-18",
+        "salary": 38000,
+        "eps": "MediCare",
+        "phone_number": 5678901234,
+        "emergency_contact": {
+          "contact_name": "Jennifer Davis",
+          "relationship": "Spouse",
+          "contact_number": 5673456789
+        }
+      },
+      {
+        "id": 10,
+        "full_name": "Amanda Wilson",
+        "start_contract": "2022-08-10",
+        "salary": 40000,
+        "eps": "HealthPlus",
+        "phone_number": 6789012345,
+        "emergency_contact": {
+          "contact_name": "Jason Wilson",
+          "relationship": "Parent",
+          "contact_number": 6786789012
+        }
+      }
+]);
+db.taco_shop.insertMany([
+    {
+      "id": siguienteId("taco_shop"),
+      "amount": 5,
+      "date": "2023-08-01",
+      "seller": "Juan",
+      "ticket_type": "Regular",
+      "ticket_price": 8
+    },
+    {
+      "id": siguienteId("taco_shop"),
+      "amount": 3,
+      "date": "2023-08-02",
+      "seller": "Maria",
+      "ticket_type": "Child",
+      "ticket_price": 5
+    },
+    {
+      "id": siguienteId("taco_shop"),
+      "amount": 10,
+      "date": "2023-08-03",
+      "seller": "Carlos",
+      "ticket_type": "Regular",
+      "ticket_price": 8
+    },
+    {
+        "id": siguienteId("taco_shop"),
+      "amount": 8,
+      "date": "2023-08-04",
+      "seller": "Ana",
+      "ticket_type": "Student",
+      "ticket_price": 6
+    },
+    {
+        "id": siguienteId("taco_shop"),
+      "amount": 6,
+      "date": "2023-08-05",
+      "seller": "Luis",
+      "ticket_type": "Regular",
+      "ticket_price": 8
+    },
+    {
+    "id": siguienteId("taco_shop"),
+      "amount": 4,
+      "date": "2023-08-06",
+      "seller": "Elena",
+      "ticket_type": "Senior",
+      "ticket_price": 4
+    },
+    {
+    "id": siguienteId("taco_shop"),
+      "amount": 7,
+      "date": "2023-08-07",
+      "seller": "Javier",
+      "ticket_type": "Regular",
+      "ticket_price": 8
+    },
+    {
+    "id": siguienteId("taco_shop"),
+      "amount": 9,
+      "date": "2023-08-08",
+      "seller": "Sofia",
+      "ticket_type": "Regular",
+      "ticket_price": 8
+    },
+    {
+    "id": siguienteId("taco_shop"),
+      "amount": 12,
+      "date": "2023-08-09",
+      "seller": "Diego",
+      "ticket_type": "Regular",
+      "ticket_price": 8
+    },
+    {
+    "id": siguienteId("taco_shop"),
+      "amount": 2,
+      "date": "2023-08-10",
+      "seller": "Carmen",
+      "ticket_type": "Child",
+      "ticket_price": 5
+    }
+]);
+db.emergencies.insertMany([
+    {
+      "id": siguienteId("emergencies"),
+      "id_animal": 8,
+      "id_vet": 4,
+      "description": "Severe injury on front paw",
+      "date": "2023-08-05",
+      "emergency_type": "Medical"
+    },
+    {
+      "id": siguienteId("emergencies"),
+      "id_animal": 15,
+      "id_vet": 2,
+      "description": "High fever and loss of appetite",
+      "date": "2023-08-10",
+      "emergency_type": "Medical"
+    },
+    {
+      "id": siguienteId("emergencies"),
+      "id_animal": 4,
+      "id_vet": 6,
+      "description": "Ingested foreign object",
+      "date": "2023-08-15",
+      "emergency_type": "Surgical"
+    },
+    {
+      "id": siguienteId("emergencies"),
+      "id_animal": 9,
+      "id_vet": 1,
+      "description": "Broken wing",
+      "date": "2023-08-20",
+      "emergency_type": "Surgical"
+    },
+    {
+      "id": siguienteId("emergencies"),
+      "id_animal": 21,
+      "id_vet": 3,
+      "description": "Excessive lethargy and coughing",
+      "date": "2023-08-25",
+      "emergency_type": "Medical"
+    },
+    {
+      "id": siguienteId("emergencies"),
+      "id_animal": 27,
+      "id_vet": 5,
+      "description": "Difficulty swimming, labored breathing",
+      "date": "2023-08-30",
+      "emergency_type": "Medical"
+    },
+    {
+      "id": siguienteId("emergencies"),
+      "id_animal": 10,
+      "id_vet": 4,
+      "description": "Bleeding wound on hind leg",
+      "date": "2023-09-05",
+      "emergency_type": "Medical"
+    },
+    {
+      "id": siguienteId("emergencies"),
+      "id_animal": 16,
+      "id_vet": 2,
+      "description": "Snakebite on tail",
+      "date": "2023-09-10",
+      "emergency_type": "Medical"
+    },
+    {
+      "id": siguienteId("emergencies"),
+      "id_animal": 7,
+      "id_vet": 6,
+      "description": "Swallowed foreign object",
+      "date": "2023-09-15",
+      "emergency_type": "Surgical"
+    },
+    {
+      "id": siguienteId("emergencies"),
+      "id_animal": 19,
+      "id_vet": 1,
+      "description": "Suspected poisoning",
+      "date": "2023-09-20",
+      "emergency_type": "Medical"
+    }
+]);
