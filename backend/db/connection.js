@@ -8,7 +8,7 @@ export async function connect(){
         return dbConnection;
     };
     try {
-        const uri = `mongodb+srv://${config.user}:${config.pass}@cluster0.mqhexgk.mongodb.net/${config.db}`;
+        const uri = `mongodb+srv://${config.user}:${config.password}@cluster0.mqhexgk.mongodb.net/${config.db}`;
         const options = {
             useNewUrlParser: true,
             useUnifiedTopology: true

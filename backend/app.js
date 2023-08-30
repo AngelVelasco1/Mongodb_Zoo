@@ -1,9 +1,9 @@
-import config from "./src/utils/config.js";
-import express  from "express";
+import express from 'express'
+import { CONFIG } from "./src/utils/config.js";
 
 const app = express();
+app.use(express.json());
 
-
-app.listen(config.server, ()=>{
-    console.log(`El servidor está activo: http://${config.server.hostname}:${config.server.port}`);
-});
+app.listen(CONFIG.server, () => {
+    console.log(`Server listening on http://${CONFIG.server.hostname}:${CONFIG.server.port}`);
+})
