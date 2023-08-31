@@ -1,4 +1,5 @@
 import { collectionGen } from "../../db/connection.js";
+import siguienteId from "../helpers/autoincrement.js";
 
 class tacoShop {
     constructor(){};
@@ -22,7 +23,7 @@ class tacoShop {
     async postTacoShop(data){
         try {
             const connect = await this.connection();
-            const result = await connect.postOne(data);
+            const result = await connect.insertOne({ "id": siguienteId("taco_shop") ,...data});
             return result;
         } catch (error) {
             throw error;

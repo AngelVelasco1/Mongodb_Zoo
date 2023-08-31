@@ -1,4 +1,5 @@
 import { collectionGen } from "../../db/connection.js";
+import siguienteId from "../helpers/autoincrement.js";
 
 class Services{
     /* aqui ingreso los datos como está construida la colección en la base de datos como una guia únicamente, estos valores no afectan el código, simplemente son una guia visual. */
@@ -36,7 +37,7 @@ class Services{
         try {
             const connect = await this.connection();
             /* arreglar el tema del siguienteID */
-            const result = await connect.insertOne(data);
+            const result = await connect.insertOne({ "id": siguienteId("Services") ,...data});
             return result;
         } catch (error) {
             throw error; 
