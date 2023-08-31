@@ -16,7 +16,7 @@ db.Habitats.insertMany([
         "weather": "Tropical",
         "residents": ["Lion", "Zebra", "Giraffe"],
         "assigned_personnel": 3,
-        "next_maintenance": "2023-09-15"
+        "next_maintenance": new Date("2023-09-15")
       },
       {
         "id": siguienteId("Habitats"),
@@ -25,7 +25,7 @@ db.Habitats.insertMany([
         "weather": "Humid",
         "residents": ["Monkey", "Parrot", "Jaguar"],
         "assigned_personnel": 4,
-        "next_maintenance": "2023-09-20"
+        "next_maintenance": new Date("2023-09-20")
       },
       {
         "id": siguienteId("Habitats"),
@@ -34,7 +34,7 @@ db.Habitats.insertMany([
         "weather": "Controlled",
         "residents": ["Shark", "Octopus", "Turtle"],
         "assigned_personnel": 5,
-        "next_maintenance": "2023-09-18"
+        "next_maintenance": new Date("2023-09-18")
       },
       {
         "id": siguienteId("Habitats"),
@@ -43,7 +43,7 @@ db.Habitats.insertMany([
         "weather": "Cold",
         "residents": ["Polar Bear", "Arctic Fox", "Seal"],
         "assigned_personnel": 3,
-        "next_maintenance": "2023-09-22"
+        "next_maintenance": new Date("2023-09-22")
       },
       {
         "id": siguienteId("Habitats"),
@@ -52,7 +52,7 @@ db.Habitats.insertMany([
         "weather": "Hot",
         "residents": ["Camel", "Rattlesnake", "Scorpion"],
         "assigned_personnel": 2,
-        "next_maintenance": "2023-09-16"
+        "next_maintenance": new Date("2023-09-16")
       },
       {
         "id": siguienteId("Habitats"),
@@ -61,7 +61,7 @@ db.Habitats.insertMany([
         "weather": "Controlled",
         "residents": ["Eagle", "Owl", "Toucan"],
         "assigned_personnel": 2,
-        "next_maintenance": "2023-09-19"
+        "next_maintenance": new Date("2023-09-19")
       },
       {
         "id": siguienteId("Habitats"),
@@ -70,7 +70,7 @@ db.Habitats.insertMany([
         "weather": "Controlled",
         "residents": ["Anaconda", "Python", "Gecko"],
         "assigned_personnel": 4,
-        "next_maintenance": "2023-09-17"
+        "next_maintenance": new Date("2023-09-17")
       },
       {
         "id": siguienteId("Habitats"),
@@ -79,7 +79,7 @@ db.Habitats.insertMany([
         "weather": "Controlled",
         "residents": ["Chimpanzee", "Orangutan", "Lemur"],
         "assigned_personnel": 3,
-        "next_maintenance": "2023-09-21"
+        "next_maintenance": new Date("2023-09-21")
       },
       {
         "id": siguienteId("Habitats"),
@@ -88,7 +88,7 @@ db.Habitats.insertMany([
         "weather": "Controlled",
         "residents": ["Goat", "Rabbit", "Pony"],
         "assigned_personnel": 2,
-        "next_maintenance": "2023-09-23"
+        "next_maintenance": new Date("2023-09-23")
       },
       {
         "id": siguienteId("Habitats"),
@@ -97,7 +97,7 @@ db.Habitats.insertMany([
         "weather": "Controlled",
         "residents": ["Cobra", "Turtle", "Crocodile"],
         "assigned_personnel": 4,
-        "next_maintenance": "2023-09-14"
+        "next_maintenance": new Date("2023-09-14")
       }
 ]);
 db.Animals.insertMany([
@@ -110,7 +110,7 @@ db.Animals.insertMany([
         "descendents": ["Cub 1", "Cub 2"],
         "origin": "Captive breeding program",
         "vacune": 1,
-        "entry_date": "2021-03-10",
+        "entry_date": new Date("2021-03-10"),
         "reason": "Captive bred"
       },
       {
@@ -121,8 +121,8 @@ db.Animals.insertMany([
         "location": "Rainforest",
         "origin": "Rescue",
         "vacune": 0,
-        "entry_date": "2018-05-20",
-        "death_date": "2023-07-15",
+        "entry_date": new Date("2018-05-20"),
+        "death_date": new Date("2023-07-15"),
         "reason": "Old age"
       },
       {
@@ -134,7 +134,7 @@ db.Animals.insertMany([
         "descendents": ["Offspring 1", "Offspring 2"],
         "origin": "Captive bred",
         "vacune": 0,
-        "entry_date": "2022-01-05",
+        "entry_date": new Date("2022-01-05"),
         "reason": "Aquatic exhibit"
       },
       {
@@ -146,7 +146,7 @@ db.Animals.insertMany([
         "descendents": ["Cub"],
         "origin": "Wild",
         "vacune": 1,
-        "entry_date": "2019-11-30",
+        "entry_date": new Date("2019-11-30"),
         "reason": "Natural habitat"
       },
       {
@@ -158,7 +158,7 @@ db.Animals.insertMany([
         "descendents": ["Calf 1", "Calf 2"],
         "origin": "Captive bred",
         "vacune": 1,
-        "entry_date": "2020-07-18",
+        "entry_date": new Date("2020-07-18"),
         "reason": "Safari exhibit"
       },
       {
@@ -169,7 +169,7 @@ db.Animals.insertMany([
         "location": "Aviary",
         "origin": "Rescue",
         "vacune": 1,
-        "entry_date": "2021-09-22",
+        "entry_date": new Date("2021-09-22"),
         "reason": "Injured wing"
       },
       {
@@ -181,7 +181,7 @@ db.Animals.insertMany([
         "descendents": ["Hatchling 1", "Hatchling 2"],
         "origin": "Captive bred",
         "vacune": 0,
-        "entry_date": "2020-03-15",
+        "entry_date": new Date("2020-03-15"),
         "reason": "Reptile exhibit"
       },
       {
@@ -192,7 +192,7 @@ db.Animals.insertMany([
         "location": "Primate House",
         "origin": "Captive bred",
         "vacune": 1,
-        "entry_date": "2019-02-10",
+        "entry_date": new Date("2019-02-10"),
         "reason": "Primate conservation"
       },
       {
@@ -204,7 +204,7 @@ db.Animals.insertMany([
         "descendents": ["Kit 1", "Kit 2"],
         "origin": "Captive bred",
         "vacune": 0,
-        "entry_date": "2022-04-05",
+        "entry_date": new Date("2022-04-05"),
         "reason": "Children's attraction"
       },
       {
@@ -215,7 +215,7 @@ db.Animals.insertMany([
         "location": "Reptile House",
         "origin": "Wild",
         "vacune": 0,
-        "entry_date": "2021-08-18",
+        "entry_date": new Date("2021-08-18"),
         "reason": "Venomous exhibit"
       }, 
       {
@@ -227,7 +227,7 @@ db.Animals.insertMany([
         "descendents": ["Pup 1", "Pup 2"],
         "origin": "Rescue",
         "vacune": 1,
-        "entry_date": "2022-06-12",
+        "entry_date": new Date("2022-06-12"),
         "reason": "Wildlife conservation"
       },
       {
@@ -238,7 +238,7 @@ db.Animals.insertMany([
         "location": "Savannah",
         "origin": "Captive bred",
         "vacune": 0,
-        "entry_date": "2021-09-28",
+        "entry_date": new Date("2021-09-28"),
         "reason": "Zoo breeding program"
       },
       {
@@ -250,7 +250,7 @@ db.Animals.insertMany([
         "descendents": ["Juvenile 1", "Juvenile 2"],
         "origin": "Wild",
         "vacune": 0,
-        "entry_date": "2023-01-17",
+        "entry_date": new Date("2023-01-17"),
         "reason": "Reptile exhibit"
       },
       {
@@ -261,7 +261,7 @@ db.Animals.insertMany([
         "location": "Primate House",
         "origin": "Rescue",
         "vacune": 1,
-        "entry_date": "2020-11-08",
+        "entry_date": new Date("2020-11-08"),
         "reason": "Orangutan conservation"
       },
       {
@@ -273,7 +273,7 @@ db.Animals.insertMany([
         "descendents": ["Pup 1", "Pup 2"],
         "origin": "Captive bred",
         "vacune": 0,
-        "entry_date": "2022-03-25",
+        "entry_date": new Date("2022-03-25"),
         "reason": "Nocturnal exhibit"
       },
       {
@@ -284,7 +284,7 @@ db.Animals.insertMany([
         "location": "Savannah",
         "origin": "Captive bred",
         "vacune": 1,
-        "entry_date": "2022-07-10",
+        "entry_date": new Date("2022-07-10"),
         "reason": "Striped exhibit"
       },
       {
@@ -296,7 +296,7 @@ db.Animals.insertMany([
         "descendents": ["Calf"],
         "origin": "Rescue",
         "vacune": 0,
-        "entry_date": "2019-10-02",
+        "entry_date": new Date("2019-10-02"),
         "reason": "Marine exhibit"
       },
       {
@@ -307,7 +307,7 @@ db.Animals.insertMany([
         "location": "Rainforest",
         "origin": "Wild",
         "vacune": 1,
-        "entry_date": "2021-05-15",
+        "entry_date": new Date("2021-05-15"),
         "reason": "Rainforest conservation"
       },
       {
@@ -319,7 +319,7 @@ db.Animals.insertMany([
         "descendents": ["Joey"],
         "origin": "Captive bred",
         "vacune": 0,
-        "entry_date": "2022-09-01",
+        "entry_date": new Date("2022-09-01"),
         "reason": "Australian exhibit"
       },
       {
@@ -331,7 +331,7 @@ db.Animals.insertMany([
         "descendents": ["Cub"],
         "origin": "Captive bred",
         "vacune": 1,
-        "entry_date": "2020-12-03",
+        "entry_date": new Date("2020-12-03"),
         "reason": "Endangered species"
       }
 ]);
@@ -341,7 +341,7 @@ db.Services.insertMany([
         "shop": "Gift Shop",
         "product_name": "Plush Toy",
         "id_staff": 8,
-        "date": "2023-08-01",
+        "date": new Date("2023-08-01"),
         "amount": 30,
         "price": 10,
         "devolutions": 2,
@@ -353,7 +353,7 @@ db.Services.insertMany([
         "shop": "Cafeteria",
         "product_name": "Coffee",
         "id_staff": 9,
-        "date": "2023-08-05",
+        "date": new Date("2023-08-05"),
         "amount": 50,
         "price": 3,
         "devolutions": 1,
@@ -365,7 +365,7 @@ db.Services.insertMany([
         "shop": "Taco Stand",
         "product_name": "Taco Combo",
         "id_staff": 10,
-        "date": "2023-08-10",
+        "date": new Date("2023-08-10"),
         "amount": 20,
         "price": 8
       },
@@ -374,7 +374,7 @@ db.Services.insertMany([
         "shop": "Gift Shop",
         "product_name": "Keychain",
         "id_staff": 11,
-        "date": "2023-08-12",
+        "date": new Date("2023-08-12"),
         "amount": 40,
         "price": 5,
         "devolutions": 4,
@@ -386,7 +386,7 @@ db.Services.insertMany([
         "shop": "Cafeteria",
         "product_name": "Sandwich",
         "id_staff": 12,
-        "date": "2023-08-15",
+        "date": new Date("2023-08-15"),
         "amount": 25,
         "price": 6,
         "devolutions": 1,
@@ -398,7 +398,7 @@ db.Services.insertMany([
         "shop": "Taco Stand",
         "product_name": "Burrito",
         "id_staff": 13,
-        "date": "2023-08-20",
+        "date": new Date("2023-08-20"),
         "amount": 15,
         "price": 7
       },
@@ -407,7 +407,7 @@ db.Services.insertMany([
         "shop": "Gift Shop",
         "product_name": "Postcard",
         "id_staff": 14,
-        "date": "2023-08-25",
+        "date": new Date("2023-08-25"),
         "amount": 100,
         "price": 2,
         "devolutions": 3,
@@ -419,7 +419,7 @@ db.Services.insertMany([
         "shop": "Cafeteria",
         "product_name": "Ice Cream",
         "id_staff": 15,
-        "date": "2023-08-30",
+        "date": new Date("2023-08-30"),
         "amount": 50,
         "price": 4,
         "devolutions": 2,
@@ -431,7 +431,7 @@ db.Services.insertMany([
         "shop": "Taco Stand",
         "product_name": "Nachos",
         "id_staff": 16,
-        "date": "2023-09-05",
+        "date": new Date("2023-09-05"),
         "amount": 10,
         "price": 5
       },
@@ -440,7 +440,7 @@ db.Services.insertMany([
         "shop": "Gift Shop",
         "product_name": "Souvenir Mug",
         "id_staff": 17,
-        "date": "2023-09-10",
+        "date": new Date("2023-09-10"),
         "amount": 35,
         "price": 8,
         "devolutions": 1,
@@ -452,7 +452,8 @@ db.staff.insertMany([
     {
         "id": siguienteId("staff"),
         "full_name": "Emily Johnson",
-        "start_contract": "2022-01-15",
+        "start_contract": new Date("2022-01-15"),
+        "end_contract": new Date("2023-03-29"),
         "salary": 45000,
         "eps": "HealthCare Inc.",
         "phone_number": 1234567890,
@@ -465,7 +466,7 @@ db.staff.insertMany([
       {
         "id": siguienteId("staff"),
         "full_name": "Alex Rodriguez",
-        "start_contract": "2021-06-10",
+        "start_contract": new Date("2021-06-10"),
         "salary": 38000,
         "eps": "HealthWell",
         "phone_number": 5551234567,
@@ -478,7 +479,7 @@ db.staff.insertMany([
       {
         "id": siguienteId("staff"),
         "full_name": "David Smith",
-        "start_contract": "2020-03-20",
+        "start_contract": new Date("2020-03-20"),
         "salary": 50000,
         "eps": "CarePlus",
         "phone_number": 6789012345,
@@ -491,7 +492,7 @@ db.staff.insertMany([
       {
         "id": siguienteId("staff"),
         "full_name": "Jessica Brown",
-        "start_contract": "2023-02-05",
+        "start_contract": new Date("2023-02-05"),
         "salary": 42000,
         "eps": "HealthGuard",
         "phone_number": 7890123456,
@@ -504,7 +505,7 @@ db.staff.insertMany([
       {
         "id": siguienteId("staff"),
         "full_name": "Michael Williams",
-        "start_contract": "2022-09-15",
+        "start_contract": new Date("2022-09-15"),
         "salary": 40000,
         "eps": "MediCare",
         "phone_number": 8901234567,
@@ -517,7 +518,8 @@ db.staff.insertMany([
       {
         "id": siguienteId("staff"),
         "full_name": "Sarah Martinez",
-        "start_contract": "2021-03-10",
+        "start_contract": new Date("2021-03-10"),
+        "end_contract": new Date("2023-03-29"),
         "salary": 36000,
         "eps": "HealthPlus",
         "phone_number": 9012345678,
@@ -530,7 +532,7 @@ db.staff.insertMany([
       {
         "id": siguienteId("staff"),
         "full_name": "Ryan Johnson",
-        "start_contract": "2023-04-22",
+        "start_contract": new Date("2023-04-22"),
         "salary": 48000,
         "eps": "WellnessCare",
         "phone_number": 1237894560,
@@ -543,7 +545,7 @@ db.staff.insertMany([
       {
         "id": siguienteId("staff"),
         "full_name": "Michelle Smith",
-        "start_contract": "2020-12-01",
+        "start_contract": new Date("2020-12-01"),
         "salary": 42000,
         "eps": "HealthGuard",
         "phone_number": 3456789012,
@@ -556,7 +558,7 @@ db.staff.insertMany([
       {
         "id": siguienteId("staff"),
         "full_name": "Christopher Davis",
-        "start_contract": "2023-01-18",
+        "start_contract": new Date("2023-01-18"),
         "salary": 38000,
         "eps": "MediCare",
         "phone_number": 5678901234,
@@ -569,7 +571,8 @@ db.staff.insertMany([
       {
         "id": 10,
         "full_name": "Amanda Wilson",
-        "start_contract": "2022-08-10",
+        "start_contract": new Date("2022-08-10"),
+        "end_contract": new Date("2023-03-29"),
         "salary": 40000,
         "eps": "HealthPlus",
         "phone_number": 6789012345,
@@ -584,7 +587,7 @@ db.taco_shop.insertMany([
     {
       "id": siguienteId("taco_shop"),
       "amount": 5,
-      "date": "2023-08-01",
+      "date": new Date("2023-08-01"),
       "seller": "Juan",
       "ticket_type": "Regular",
       "ticket_price": 8
@@ -592,7 +595,7 @@ db.taco_shop.insertMany([
     {
       "id": siguienteId("taco_shop"),
       "amount": 3,
-      "date": "2023-08-02",
+      "date": new Date("2023-08-02"),
       "seller": "Maria",
       "ticket_type": "Child",
       "ticket_price": 5
@@ -600,7 +603,7 @@ db.taco_shop.insertMany([
     {
       "id": siguienteId("taco_shop"),
       "amount": 10,
-      "date": "2023-08-03",
+      "date": new Date("2023-08-03"),
       "seller": "Carlos",
       "ticket_type": "Regular",
       "ticket_price": 8
@@ -608,7 +611,7 @@ db.taco_shop.insertMany([
     {
         "id": siguienteId("taco_shop"),
       "amount": 8,
-      "date": "2023-08-04",
+      "date": new Date("2023-08-04"),
       "seller": "Ana",
       "ticket_type": "Student",
       "ticket_price": 6
@@ -616,7 +619,7 @@ db.taco_shop.insertMany([
     {
         "id": siguienteId("taco_shop"),
       "amount": 6,
-      "date": "2023-08-05",
+      "date": new Date("2023-08-05"),
       "seller": "Luis",
       "ticket_type": "Regular",
       "ticket_price": 8
@@ -624,7 +627,7 @@ db.taco_shop.insertMany([
     {
     "id": siguienteId("taco_shop"),
       "amount": 4,
-      "date": "2023-08-06",
+      "date": new Date("2023-08-06"),
       "seller": "Elena",
       "ticket_type": "Senior",
       "ticket_price": 4
@@ -632,7 +635,7 @@ db.taco_shop.insertMany([
     {
     "id": siguienteId("taco_shop"),
       "amount": 7,
-      "date": "2023-08-07",
+      "date": new Date("2023-08-07"),
       "seller": "Javier",
       "ticket_type": "Regular",
       "ticket_price": 8
@@ -640,7 +643,7 @@ db.taco_shop.insertMany([
     {
     "id": siguienteId("taco_shop"),
       "amount": 9,
-      "date": "2023-08-08",
+      "date": new Date("2023-08-08"),
       "seller": "Sofia",
       "ticket_type": "Regular",
       "ticket_price": 8
@@ -648,7 +651,7 @@ db.taco_shop.insertMany([
     {
     "id": siguienteId("taco_shop"),
       "amount": 12,
-      "date": "2023-08-09",
+      "date": new Date("2023-08-09"),
       "seller": "Diego",
       "ticket_type": "Regular",
       "ticket_price": 8
@@ -656,7 +659,7 @@ db.taco_shop.insertMany([
     {
     "id": siguienteId("taco_shop"),
       "amount": 2,
-      "date": "2023-08-10",
+      "date": new Date("2023-08-10"),
       "seller": "Carmen",
       "ticket_type": "Child",
       "ticket_price": 5
@@ -668,7 +671,7 @@ db.emergencies.insertMany([
       "id_animal": 8,
       "id_vet": 4,
       "description": "Severe injury on front paw",
-      "date": "2023-08-05",
+      "date": new Date("2023-08-05"),
       "emergency_type": "Medical"
     },
     {
@@ -676,7 +679,7 @@ db.emergencies.insertMany([
       "id_animal": 15,
       "id_vet": 2,
       "description": "High fever and loss of appetite",
-      "date": "2023-08-10",
+      "date": new Date("2023-08-10"),
       "emergency_type": "Medical"
     },
     {
@@ -684,7 +687,7 @@ db.emergencies.insertMany([
       "id_animal": 4,
       "id_vet": 6,
       "description": "Ingested foreign object",
-      "date": "2023-08-15",
+      "date": new Date("2023-08-15"),
       "emergency_type": "Surgical"
     },
     {
@@ -692,7 +695,7 @@ db.emergencies.insertMany([
       "id_animal": 9,
       "id_vet": 1,
       "description": "Broken wing",
-      "date": "2023-08-20",
+      "date": new Date("2023-08-20"),
       "emergency_type": "Surgical"
     },
     {
@@ -700,7 +703,7 @@ db.emergencies.insertMany([
       "id_animal": 21,
       "id_vet": 3,
       "description": "Excessive lethargy and coughing",
-      "date": "2023-08-25",
+      "date": new Date("2023-08-25"),
       "emergency_type": "Medical"
     },
     {
@@ -708,7 +711,7 @@ db.emergencies.insertMany([
       "id_animal": 27,
       "id_vet": 5,
       "description": "Difficulty swimming, labored breathing",
-      "date": "2023-08-30",
+      "date": new Date("2023-08-30"),
       "emergency_type": "Medical"
     },
     {
@@ -716,7 +719,7 @@ db.emergencies.insertMany([
       "id_animal": 10,
       "id_vet": 4,
       "description": "Bleeding wound on hind leg",
-      "date": "2023-09-05",
+      "date": new Date("2023-09-05"),
       "emergency_type": "Medical"
     },
     {
@@ -724,7 +727,7 @@ db.emergencies.insertMany([
       "id_animal": 16,
       "id_vet": 2,
       "description": "Snakebite on tail",
-      "date": "2023-09-10",
+      "date": new Date("2023-09-10"),
       "emergency_type": "Medical"
     },
     {
@@ -732,7 +735,7 @@ db.emergencies.insertMany([
       "id_animal": 7,
       "id_vet": 6,
       "description": "Swallowed foreign object",
-      "date": "2023-09-15",
+      "date": new Date("2023-09-15"),
       "emergency_type": "Surgical"
     },
     {
@@ -740,7 +743,7 @@ db.emergencies.insertMany([
       "id_animal": 19,
       "id_vet": 1,
       "description": "Suspected poisoning",
-      "date": "2023-09-20",
+      "date": new Date("2023-09-20"),
       "emergency_type": "Medical"
     }
 ]);

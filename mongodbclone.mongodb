@@ -1,0 +1,142 @@
+use("zoo_db");
+//? CONSULTAS
+
+// 9.
+
+// 10.
+db.staff.aggregate([
+    {
+        $match: {
+            salary: { $eq: 40000 } // El valor se cambiaria por el párametro del usuario
+        }
+    },
+    {
+        $sort: {
+            salary: -1
+        }
+    },
+    {
+        $project: {
+            _id: 0,
+            id: 0,
+            emergency_contact: 0,
+            eps: 0
+        }
+    }
+])
+
+//11.
+
+//12.
+use("zoo_db");
+db.taco_shop.aggregate([
+    {
+        $group: {
+            _id: "$ticket_type",
+            total: { $sum: "$amount" }
+        }
+    },
+    {
+        $sort: {
+            total: -1,
+        }
+    },
+    {
+        $project: {
+            _id: 0,
+            tickect_type: "$_id",
+            total: "$total"
+        }
+    }
+]);
+
+//13. 
+use("zoo_db");
+db.Services.aggregate([
+    {
+        $group: {
+            _id: { $month: "$date" },
+            sales: {    
+                $sum: {
+                    $multiply: [
+                        { $subtract: ["$amount", "$devolutions"] },
+                        "$price"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        $sort: {
+            sales: -1
+        }
+    },
+    {
+        $limit: 1
+    },
+    {
+        $project: {
+            "month": "$_id",
+            sales: 1,
+            _id: 0
+        }
+    }
+])
+//14. 
+use("zoo_db");
+db.emergencies.aggregate([
+    {
+        $match: {
+            id_vet: 1
+        }
+
+    },
+    {
+        $project: {
+            _id: 0,
+            id: 0,
+            id_vet: 0
+        }
+    }
+])
+
+//15
+use("zoo_db");
+db.Animals.aggregate([
+    {
+        $lookup: {
+            from: "emergencies",
+            localField: "id",
+            foreignField: "id_animal",
+            as: "incidents"
+        }
+    },
+    {
+        $unwind: "$incidents"
+    },
+    {
+        $match: {
+            "incidents.id_animal": 8
+        }
+    },
+    {
+        $project: {
+            _id: 0,
+            id: 0,
+            "incidents.id": 0,
+            "incidents.id_animal": 0,
+            "incidents._id": 0,
+            "incidents.id_vet": 0
+
+        }
+    }
+])
+//16.
+use("zoo_db");
+db.emergencies.aggregate([
+    {
+        $match: {
+            date: { $gte: "2023-08-05", $lte: "2023-08-20" }
+        }
+    }
+])
