@@ -44,7 +44,7 @@ db.createCollection("Habitats", {
                     bsonType: "int"
                 },
                 next_maintenance: {
-                    bsonType: "string"
+                    bsonType: "date"
                 }
             }
         }
@@ -76,7 +76,7 @@ db.createCollection("Services", {
                     bsonType: "int"
                 }, 
                 date:{
-                    bsonType: "string"
+                    bsonType: "date"
                 }, 
                 amount:{
                     bsonType: "int"
@@ -138,10 +138,10 @@ db.createCollection("Animals", {
                     bsonType: "int"
                 },
                 entry_date: {
-                    bsonType: "string"
+                    bsonType: "date"
                 },
                 death_date: {
-                    bsonType: "string"
+                    bsonType: "date"
                 },
                 reason: {
                     bsonType: "string"
@@ -177,7 +177,10 @@ db.createCollection("staff", {
                     bsonType: "string"
                 },
                 start_contract: {
-                    bsonType: "string"
+                    bsonType: "date"
+                },
+                end_contract: {
+                    bsonType: "date"
                 },
                 salary: {
                     bsonType: "number"
@@ -232,7 +235,7 @@ db.createCollection("taco_shop", {
                     bsonType: "int"
                 },
                 date: {
-                    bsonType: "string"
+                    bsonType: "date"
                 },
                 seller:{
                     bsonType: "string"
@@ -278,7 +281,7 @@ db.createCollection("emergencies", {
                     bsonType: "string"
                 },
                 date: {
-                    bsonType: "string"
+                    bsonType: "date"
                 },
                 emergency_type: {
                     bsonType: "string"
