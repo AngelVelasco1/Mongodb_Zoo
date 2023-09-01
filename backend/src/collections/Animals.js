@@ -1,4 +1,5 @@
 import { collectionGen } from "../../db/connection.js";
+import siguienteId from "../helpers/autoincrement.js";
 
 class Animals{
     _id;
@@ -16,7 +17,7 @@ class Animals{
     constructor(){};
     async connection(){
         try {
-            const result = await this.collectionGen("Animals");
+            const result = await collectionGen("Animals");
             return result;
         } catch (error) {
             throw error; 
@@ -34,8 +35,7 @@ class Animals{
     async postAnimals(data){
         try {
             const connect = await this.connection();
-            /* arreglar el tema del siguienteID */
-            const result = await connect.postOne(data);
+            const result = await connect.insertOne({ "id": siguienteId("Animals") ,...data});
             return result; 
         } catch (error) {
             throw error;
