@@ -7,7 +7,6 @@ import routesVersioning from "express-routes-versioning";
 export const deleteInitRoute = () => {
     const app = Router();
     const version = routesVersioning();
-
     app.use(passportHelper.authenticate("bearer"), {session: false});
 
     app.delete("/habitats", version({

@@ -45,7 +45,7 @@ export const habitatsPostValidate = async (req, res, next) => {
     next();
 }
 
-export const staffsPostValidate = async (req, res, next) => {
+export const staffPostValidate = async (req, res, next) => {
     const errors = validationResult(req)
     if (!errors.isEmpty()) return res.status(400).json({error: errors.array()});
 

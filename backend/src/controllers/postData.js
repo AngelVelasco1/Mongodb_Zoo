@@ -1,6 +1,6 @@
 import { postServiceHabitat, postServiceAnimals, postServiceEmergencies, postServiceServices, postServiceStaff, postServiceTacoShop } from "../services/post.js";
 
-export const postHabitatsController = async (req, res) => {
+export const postHabitatController = async (req, res) => {
     try {
         const habitats = await postServiceHabitat(req.body);
         res.status(200).json(habitats);
