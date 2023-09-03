@@ -1,6 +1,7 @@
 import { check } from 'express-validator'
 
 const animal = {
+    id_staff: "staffId",
     animal_name: "name",
     species: "species",
     aprox_age: "age",
@@ -13,6 +14,10 @@ const animal = {
     reason: "reason"
 };
 export const animalsDtoV1 = [
+    check(`${animal.id_staff}`)
+        .notEmpty().withMessage(`${animal.id_staff} is required`)
+        .isNumeric().withMessage(`${animal.id_staff} should be an number of an staff member`),
+
     check(`${animal.animal_name}`)
         .notEmpty().withMessage(`${animal.animal_name} is required`)
         .isString().withMessage(`${animal.animal_name} should be a string`)
