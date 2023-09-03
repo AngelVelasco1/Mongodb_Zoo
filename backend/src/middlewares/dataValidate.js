@@ -107,7 +107,8 @@ export const servicesDtoV1 = [
         .isInt().optional().withMessage(`${services.devolutions} should be am interger`),
 
     check(`${services.reason}`)
-        .isString().optional().withMessage(`${services.reason} should be a string`)
+        .optional()
+        .isString().withMessage(`${services.reason} should be a string`)
         .matches(/^[a-zA-Z]+$/).withMessage(`${services.reason} don't accept special characters`),
 
     check(`${services.refund}`)
@@ -158,6 +159,7 @@ export const habitatsDtoV1 = [
 const staff = {
     full_name: "name",
     start_contract: "startContract",
+    end_contract: "endContract",
     salary: "salary",
     eps: "eps",
     phone_number: "phoneNumber",
@@ -177,6 +179,11 @@ export const staffsDtoV1 = [
         .notEmpty().withMessage(`${staff.start_contract} is required`)
         .isString().withMessage(`${staff.start_contract} should be a string`)
         .matches(/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/).withMessage(`${staff.start_contract} should be AAAA-MM-DD pattern`),
+        
+    check(`${staff.end_contract}`)
+        .optional()
+        .isString().withMessage(`${staff.end_contract} should be a string`)
+        .matches(/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/).withMessage(`${staff.end_contract} should be AAAA-MM-DD pattern`),
 
     check(`${staff.salary}`)
         .notEmpty().withMessage(`${services.salary} is required`)
