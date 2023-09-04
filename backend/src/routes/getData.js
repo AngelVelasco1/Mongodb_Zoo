@@ -37,82 +37,83 @@ export const getInitRoute = () => {
 
     app.get("/animalsByEntryY", version({
         "^1.0.0": AnimalsByEntryYController,
-        "^2.0.0": AnimalsByEntryYController,
+        "2.0.2": AnimalsByEntryYController,
     }));
 
     app.get("/animalsDeath", version({
         "^1.0.0": AnimalsDeathController,
-        "^2.0.0": AnimalsDeathController,
+        "2.0.2": AnimalsDeathController,
     }))
 
     app.get("/staffAnimals", version({
         "^1.0.0": StaffAnimalsController,
-        "^2.0.0": StaffAnimalsController,
+        "2.0.2": StaffAnimalsController,
     }))
 
     app.get("/habitatAnimals", version({
         "^1.0.0": HabitatAnimalsController,
-        "^2.0.0": HabitatAnimalsController,
+        "2.0.2": HabitatAnimalsController,
     }))
 
     app.get("/animalsNoVacunes", version({
         "^1.0.0": getAnimalsNoVacunesController,
-        "^2.0.0": getAnimalsNoVacunesController,
+        "2.0.2": getAnimalsNoVacunesController,
     }))
 
     app.get("/devolutions", version({
         "^1.0.0": DevolutionsController,
-        "^2.0.0": DevolutionsController,
+        "2.0.1": DevolutionsController,
     }))
 
     app.get("/lossMoney", version({
         "^1.0.0": LossMoneyController,
-        "^2.0.0": LossMoneyController,
+        "2.0.1": LossMoneyController,
     }))
 
     app.get("/balanceDay", version({
         "^1.0.0": BalanceDayController,
-        "^2.0.0": BalanceDayController,
+        "2.0.1": BalanceDayController,
     }))
 
     app.get("/sellsMonth", version({
         "^1.0.0": SellsMonthController,
-        "^2.0.0": SellsMonthController,
+        "2.0.1": SellsMonthController,
     }))
 
     app.get("/staffBySalary", version({
         "^1.0.0": StaffBySalaryController,
-        "^2.0.0": StaffBySalaryController,
+        "2.0.0": StaffBySalaryController,
     }))
 
     app.get("/staffOlder", version({
         "^1.0.0": StaffOlderController,
-        "^2.0.0": StaffOlderController,
+        "2.0.3": StaffOlderController,
     }))
 
     app.get("/tacoInOrder", version({
         "^1.0.0": TacoInOrderController,
-        "^2.0.0": TacoInOrderController,
+        "2.0.1": TacoInOrderController,
     }))
 
     app.get("/bestMonth", version({
         "^1.0.0": BestMonthController,
-        "^2.0.0": BestMonthController,
+        "2.0.1": BestMonthController,
+        "2.0.3": BestMonthController,
     }))
 
     app.get("/emergenciesByVet", version({
         "^1.0.0": EmergenciesByVetController,
-        "^2.0.0": EmergenciesByVetController,
+        "2.0.2": EmergenciesByVetController,
     }))
 
     app.get("/incidentsByAnimal", version({
         "^1.0.0": IncidentsByAnimalController,
-        "^2.0.0": IncidentsByAnimalController,
+        "2.0.2": IncidentsByAnimalController,
     }))
 
     app.get("/betweenDates", version({
         "^1.0.0": BetweenDatesController,
-        "^2.0.0": BetweenDatesController,
+        "2.0.2": BetweenDatesController,
     }))
     return app;
 }
