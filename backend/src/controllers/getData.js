@@ -6,7 +6,6 @@ export const getHabitatsController = async (req, res) => {
     try {
         const {id} = req.query;
         const habitats = await getServiceHabitat(id);
-        console.log(habitats);
         res.status(200).json(habitats);
     } catch(err) {
         res.status(500).send(err)
