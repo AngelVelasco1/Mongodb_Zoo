@@ -5,7 +5,6 @@ import { Services } from "../collections/Services.js";
 import { Staff } from "../collections/staff.js";
 import { tacoShop } from "../collections/taco_shop.js";
 
-/* CRUD */
 export const getServiceHabitat = async(id)=>{
     const habitat = new Habitat();
     return await habitat.getHabitat(id);
