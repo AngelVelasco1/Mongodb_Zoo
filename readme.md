@@ -105,6 +105,7 @@ El proyecto  utilizará las siguientes tecnologías:
     - En este caso de que desee manejar la base de datos de manera local.
     Dirijase a la ruta ./backend/db/zoo.mongodb, ahí encontrará el archivo llamado zoo.mongodb.
     Para ejecutar este archivo instale la extensión de visual studio code "MongoDB". Una vez instalada la extensión tiene que realizar todo el proceso de creación y conexión con una cuenta MongoAtlas. Luego debes ejecutar el archivo en la ruta ./backend/db/data.mongodb. Para más información referente a este tema recomendamos leer la documentación oficial
+  - Si quieres trabajar de forma remota debes iniciar sesion en tu cuenta de atlas e ingresar como string usando la extension de MongoDb la URI del atlas.
 
 Para la facilidad del evaluador las variables de entorno se dejaron especificadas en el archivo .env.example tal y como están en el .env. Por lo que en caso de querer utilizar el proyecto de forma correcta, unicamente es renombrar el archivo
 
