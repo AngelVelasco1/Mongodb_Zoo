@@ -1,0 +1,120 @@
+// Empleado con mas ventas, mostrando sus datos
+use("zoo_db");
+db.staff.aggregate([
+    {
+        $lookup: {
+          from: "Services",
+          localField: "id",
+          foreignField: "id_staff",
+          as: "services",
+        }
+    },
+    {
+        $unwind: "$services"
+    },
+    {
+        $group: {
+            _id: "$id",
+            sales: {
+                $sum: {
+                    $multiply: [
+                        {
+                            $subtract: ["$services.amount", "$services.devolutions"]
+                        },
+                        "$services.price"
+                    ]
+                }
+            },
+            employee: { $first: "$$ROOT" }
+        }
+    },
+    {
+        $sort: {
+            sales: -1
+        }
+    },
+    {
+        $limit: 1
+    },
+    {
+        $project: {
+            _id: 0,
+            id: "$employee.id",
+            full_name: "$employee.full_name",
+            start_contract: "$employee.start_contract",
+            salary: "$employee.salary",
+            eps: "$employee.eps",
+            phone_number: "$employee.phone_number",
+            sales: 1
+        }
+    }
+])
+
+// Traer el empleado con mayor antiguedad que sigua trabajando (*actualizar la base de datos para que está un propiedad opcional de fin de contrato*).
+use("zoo_db");
+db.staff.aggregate([
+    {
+        $match: {
+            "end_contract": {$exists: false}
+        }
+    },
+    {
+        $sort: {
+            "start_contract": -1
+        }
+    },
+    {
+        $limit: 1
+    },
+    {
+        $project: {
+            _id: 0,
+            full_name: 1,
+            start_contract: 1,
+            salary: 1,
+            eps: 1,
+            phone_number: 1
+        }
+    }
+])
+
+// Identificar cual fue la fecha en que mas se vendieron.
+use("zoo_db");
+db.Services.aggregate([
+    {
+        $project: {
+            month: { $substr: ["$date", 5, 2] },  //? saca el mes del string
+            amount: 1,
+            devolutions: 1,
+            price: 1   
+        }
+    },
+    {
+        $group: {
+            _id:  "$month",
+            sales: {    
+                $sum: {
+                    $multiply: [
+                        { $subtract: ["$amount", "$devolutions"] },
+                        "$price"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        $sort: {
+            sales: -1
+        }
+    },
+    {
+        $limit: 1
+    },
+    {
+        $project: {
+            _id: 0,
+            "month_number": "$_id",
+            sales: 1,
+        }
+    }
+])

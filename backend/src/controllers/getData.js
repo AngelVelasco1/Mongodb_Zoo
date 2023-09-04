@@ -2,7 +2,8 @@ import { getServiceHabitat, getServiceAnimals, getServiceEmergencies, getService
 
 export const getHabitatsController = async (req, res) => {
     try {
-        const habitats = await getServiceHabitat();
+        const {id} = req.query;
+        const habitats = await getServiceHabitat(id);
         res.status(200).json(habitats);
     } catch(err) {
         res.status(500).send(err)
@@ -11,7 +12,8 @@ export const getHabitatsController = async (req, res) => {
 
 export const getAnimalsController = async (req, res) => {
     try {
-        const animals = await getServiceAnimals();
+        const {id} = req.query;
+        const animals = await getServiceAnimals(id);
         res.status(200).json(animals);
     } catch(err) {
         res.status(500).send(err)
@@ -20,7 +22,8 @@ export const getAnimalsController = async (req, res) => {
 
 export const getEmergenciesController = async (req, res) => {
     try {
-        const emergencies = await getServiceEmergencies();
+        const {id} = req.query;
+        const emergencies = await getServiceEmergencies(id);
         res.status(200).json(emergencies);
     } catch(err) {
         res.status(500).send(err)
@@ -29,7 +32,8 @@ export const getEmergenciesController = async (req, res) => {
 
 export const getServicesController = async (req, res) => {
     try {
-        const services = await getServiceServices();
+        const {id} = req.query;
+        const services = await getServiceServices(id);
         res.status(200).json(services);
     } catch(err) {
         res.status(500).send(err)
@@ -38,7 +42,8 @@ export const getServicesController = async (req, res) => {
 
 export const getStaffsController = async (req, res) => {
     try {
-        const staffs = await getServiceStaff();
+        const {id} = req.query;
+        const staffs = await getServiceStaff(id);
         res.status(200).json(staffs);
     } catch(err) {
         res.status(500).send(err)
@@ -47,7 +52,8 @@ export const getStaffsController = async (req, res) => {
 
 export const getTacoShopController = async (req, res) => {
     try {
-        const tacoShop = await getServiceTacoShop();
+        const {id} = req.query;
+        const tacoShop = await getServiceTacoShop(id);
         res.status(200).json(tacoShop);
     } catch(err) {
         res.status(500).send(err)
