@@ -139,11 +139,59 @@ class Staff{
         }
     };
 
-    // 10. Mirar cual el empleado con más ventas en un mes en específico. con info del empleado y sus ventas.
+    // 10. Mirar cual el empleado con más ventas. con info del empleado y sus ventas.
     async getStaffBestSeller(){
         try {
             const connect = await this.connection();
-            const result = await connect.toArray();
+            const result = await connect.aggregate([
+                {
+                    $lookup: {
+                      from: "Services",
+                      localField: "id",
+                      foreignField: "id_staff",
+                      as: "services",
+                    }
+                },
+                {
+                    $unwind: "$services"
+                },
+                {
+                    $group: {
+                        _id: "$id",
+                        sales: {
+                            $sum: {
+                                $multiply: [
+                                    {
+                                        $subtract: ["$services.amount", "$services.devolutions"]
+                                    },
+                                    "$services.price"
+                                ]
+                            }
+                        },
+                        employee: { $first: "$$ROOT" }
+                    }
+                },
+                {
+                    $sort: {
+                        sales: -1
+                    }
+                },
+                {
+                    $limit: 1
+                },
+                {
+                    $project: {
+                        _id: 0,
+                        id: "$employee.id",
+                        full_name: "$employee.full_name",
+                        start_contract: "$employee.start_contract",
+                        salary: "$employee.salary",
+                        eps: "$employee.eps",
+                        phone_number: "$employee.phone_number",
+                        sales: 1
+                    }
+                }
+            ]).toArray();
             return result; 
         } catch (error) {
             throw error; 
