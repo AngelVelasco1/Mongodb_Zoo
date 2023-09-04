@@ -35,7 +35,8 @@ class Staff{
     async postStaff(data){
         try {
             const connect = await this.connection();
-            let body = { "id": siguienteId("staff") ,...data, "start_contract": new Date(data.start_contract), "end_contract": new Date(data.end_contract)}
+            let newId = await siguienteId("Animals");
+            let body = { "id": newId ,...data, "start_contract": new Date(data.start_contract), "end_contract": new Date(data.end_contract)}
             if(body.end_contract === undefined) delete body.end_contract;
             const result = await connect.insertOne(body);
             return result;

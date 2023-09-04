@@ -37,7 +37,8 @@ class Habitat{
     async postHabitat(data){
         try {
             const connect = await this.connection();
-            let body = { "id": siguienteId("Habitats") ,...data, "next_maintenance": new Date(date.next_maintenance)};
+            let newId = await siguienteId("Animals");
+            let body = { "id": newId ,...data, "next_maintenance": new Date(date.next_maintenance)};
             const result = await connect.insertOne(body)
             return result;
         } catch (error) {

@@ -23,7 +23,8 @@ class tacoShop {
     async postTacoShop(data){
         try {
             const connect = await this.connection();
-            let body = { "id": siguienteId("taco_shop") ,...data, "date": new Date(data.date)}
+            let newId = await siguienteId("Animals");
+            let body = { "id": newId ,...data, "date": new Date(data.date)}
             const result = await connect.insertOne(body);
             return result;
         } catch (error) {

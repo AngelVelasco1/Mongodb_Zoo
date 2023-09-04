@@ -233,15 +233,15 @@ El proyecto contiene 4 versiones
 -  Cuerpo de la solicitud
   ```json
    {
-       "id_staff": 3, 
-        "animal_name": "Simba",
+       "staffId": 3, 
+        "name": "Simba",
         "species": "Lion",
         "aprox_age": 8,
         "location": "Savannah",
         "descendents": ["Cub 1", "Cub 2"],
         "origin": "Captive breeding program",
-        "vacune": 1,
-        "entry_date":"2021-03-10",
+        "vacunes": 1,
+        "entryDate":"2021-03-10",
         "reason": "Captive bred" 
    }
   ```
@@ -255,15 +255,15 @@ El proyecto contiene 4 versiones
 -  Cuerpo de la solicitud
   ```json
    {
-        "id_staff": 3, 
-        "animal_name": "Simba",
+         "staffId": 3, 
+        "name": "Simba",
         "species": "Lion",
         "aprox_age": 8,
         "location": "Savannah",
         "descendents": ["Cub 1", "Cub 2"],
         "origin": "Captive breeding program",
-        "vacune": 1,
-        "entry_date":"2021-03-10",
+        "vacunes": 1,
+        "entryDate":"2021-03-10",
         "reason": "Captive bred" 
     }
   ```

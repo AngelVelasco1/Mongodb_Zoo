@@ -23,7 +23,8 @@ class Emergencies{
     async postEmergencies(data){
         try {
             const connect = await this.connection();
-            let body = { "id": siguienteId("emergencies") ,...data, "date": new Date(data.date)}; 
+            let newId = await siguienteId("Animals");
+            let body = { "id": newId ,...data, "date": new Date(data.date)}; 
             const result = await connect.insertOne(body);
             return result; 
         } catch (error) {

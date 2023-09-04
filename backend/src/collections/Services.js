@@ -36,7 +36,9 @@ class Services{
     async postServices(data){
         try {
             const connect = await this.connection();
-            let body = { "id": siguienteId("Services") ,...data, "date": new Date(data.date)}
+            let newId = await siguienteId("Services")
+            let body = { id: newId  ,...data, "date": new Date(data.date)}
+            console.log(body.id);
             const result = await connect.insertOne(body);
             return result;
         } catch (error) {

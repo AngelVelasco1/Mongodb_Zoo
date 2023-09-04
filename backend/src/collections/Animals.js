@@ -35,7 +35,8 @@ class Animals{
     async postAnimals(data){
         try {
             const connect = await this.connection();
-            let body = { "id": siguienteId("Animals") ,...data, "entry_date": new Date(data.entry_date), "death_date": new Date(data.death_date)}
+            let newId = await siguienteId("Animals");
+            let body = { "id": newId ,...data, "entry_date": new Date(data.entry_date), "death_date": new Date(data.death_date)}
             if(body.death_date === undefined) delete body.death_date; 
             const result = await connect.insertOne(body);
             return result; 
