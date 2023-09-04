@@ -1,18 +1,14 @@
 import { Router } from "express";
 import { getHabitatsController, getAnimalsController, getEmergenciesController, getServicesController, getStaffsController, getTacoShopController } from "../controllers/getData.js";
 import { AnimalsByEntryYController, AnimalsDeathController, StaffAnimalsController, HabitatAnimalsController, getAnimalsNoVacunesController, DevolutionsController, LossMoneyController, BalanceDayController, SellsMonthController, StaffBySalaryController, StaffOlderController, TacoInOrderController, BestMonthController, EmergenciesByVetController, IncidentsByAnimalController, BetweenDatesController  } from "../controllers/getData.js";
-import passportHelper from "../helpers/passport.js";
+import passportHelper  from "../helpers/passport.js";
 import routesVersioning from "express-routes-versioning";
 
 export const getInitRoute = () => {
     const app = Router();
     const version = routesVersioning();
-    app.use(passportHelper.authenticate("bearer"), {session: false});
-
-    app.get("/habitats", version({
-        "^1.0.0": getHabitatsController,
-        "^2.0.0": getHabitatsController,
-    }));
+    app.use(passportHelper.authenticate("bearer", {session: false}));
+    app.get("/habitats", getHabitatsController);
 
     app.get("/animals", version({
         "^1.0.0": getAnimalsController,
@@ -118,7 +114,5 @@ export const getInitRoute = () => {
         "^1.0.0": BetweenDatesController,
         "^2.0.0": BetweenDatesController,
     }))
-
-    
-    
+    return app;
 }

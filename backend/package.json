@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Configuration for a zoologic administration and management",
   "main": "./backend/app.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon --quiet app.js",
     "tsc": "tsc -w"
@@ -17,11 +18,14 @@
     "express-rate-limit": "6.9.0",
     "express-routes-versioning": "1.0.1",
     "jose": "4.14.4",
-    "mongodb": "6.0.0",
+    "mongodb": "5.7.0",
     "nodemon": "3.0.1",
     "passport": "0.6.0",
     "passport-http-bearer": "1.0.1",
     "reflect-metadata": "0.1.13",
     "typescript": "5.2.2"
+  },
+  "devDependencies": {
+    "express-validator": "7.0.1"
   }
 }

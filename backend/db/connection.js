@@ -1,4 +1,4 @@
-import config from "../src/utils/config.js";
+import {CONFIG} from "../src/utils/config.js";
 import { MongoClient } from "mongodb";
 
 let dbConnection = null;
@@ -8,7 +8,7 @@ export async function connect(){
         return dbConnection;
     };
     try {
-        const uri = `mongodb+srv://${config.user}:${config.password}@cluster0.mqhexgk.mongodb.net/${config.db}`;
+        const uri = `mongodb+srv://${CONFIG.user}:${CONFIG.password}@cluster0.mqhexgk.mongodb.net/${CONFIG.db}`;
         const options = {
             useNewUrlParser: true,
             useUnifiedTopology: true

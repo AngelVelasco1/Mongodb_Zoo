@@ -15,7 +15,7 @@ class tacoShop {
         try {
             const connect = await this.connection();
             if(!id) return await connect.find({}).toArray();
-            return await connect.aggregate([{$match: {"id": parseInt(id)}}]);
+            return await connect.aggregate([{$match: {"id": parseInt(id)}}]).toArray();
         } catch (error) {
             throw error;
         }

@@ -23,7 +23,9 @@ class Habitat{
     /* CRUD querys */
     async getHabitat(id){
         try {
+            console.log("antes de la conexion");
             const connect = await this.connection();
+            console.log("dentro de aqui");
             if(!id) return await connect.find({}).toArray();
             return await connect.aggregate([
                 {$match: {"id": parseInt(id)}}
