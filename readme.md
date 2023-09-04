@@ -136,6 +136,9 @@ Obtendremos un habitat especifico
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/habitats/?id=2`
 
+> ⚠️ **Importante:**
+> Este endpoint usa como parametro el id del habitat,Debes especificarlo con la sintaxis ?=id.
+
 ###  `crear Habitats`
 Podremos crear una habitat nuevo
 
@@ -148,10 +151,11 @@ Podremos crear una habitat nuevo
         "description": "Very diferent habitat",
         "weather": "Sunny",
         "residents": ["Lion", "Zebra", "Monkey"],
-        "assigned_personnel": 4,
-        "next_maintenance": new Date("2023-09-15")
+        "personnel": 4,
+        "upcomingMaintenance": new Date("2023-09-15")
     }
   ```
+
 
 
 ###  `actualizar Habitats`
@@ -164,10 +168,13 @@ Podremos crear una habitat nuevo
         "description": "Normal habitat",
         "weather": "Cloudy",
         "residents": ["Lion", "Zebra", "Leopard"],
-        "assigned_personnel": 4,
-        "next_maintenance": new Date("2023-09-16")
+        "personnel": 4,
+        "upcomingMaintenance": new Date("2023-09-16")
     }
   ```
+
+> ⚠️ **Importante:**
+> Este endpoint usa como parametro el id del habitat, Debes especificarlo con la sintaxis ?=id
 ###  `eliminar Habitats`
 
 - Método: **DELETE**
