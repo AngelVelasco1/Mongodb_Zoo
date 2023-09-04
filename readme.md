@@ -16,18 +16,44 @@ Este proyecto tiene como objetivo desarrollar un sistema de administración de u
 
 El sistema de administración de las bodegas cuenta con 
 
-**1. Gestión de Animales**
+Claro, puedo ayudarte a complementar cada punto con las operaciones básicas de gestión. Aquí tienes una descripción de cada uno:
 
+**1. Gestión de Animales:**
+   - **Añadir Animales:** Permite registrar nuevos animales en el sistema, incluyendo detalles como especie, nombre, fecha de nacimiento, etc.
+   - **Obtener Animales:** Permite consultar y visualizar la información de los animales existentes en la base de datos.
+   - **Eliminar Animales:** Permite eliminar registros de animales que ya no están en el zoológico o que han sido transferidos a otro lugar.
+   - **Actualizar Animales:** Permite modificar la información de un animal, por ejemplo, para actualizar su estado de salud o su ubicación en el zoológico.
 
-**2. Gestión de Habitats**
- 
+**2. Gestión de Habitats:**
+   - **Añadir Habitats:** Permite registrar nuevos hábitats donde los animales residirán, incluyendo detalles como el tipo de hábitat, tamaño, y ubicación.
+   - **Obtener Habitats:** Permite consultar y visualizar la información de los hábitats existentes en el zoológico.
+   - **Eliminar Habitats:** Permite eliminar registros de hábitats que ya no se utilizan o que han sido renovados.
+   - **Actualizar Habitats:** Permite modificar la información de un hábitat, como su tamaño o estado de conservación.
+
 **3. Gestión de Servicios:**
+   - **Añadir Servicios:** Permite registrar los servicios disponibles para los visitantes del zoológico, como restaurantes, tiendas de regalos, o recorridos guiados.
+   - **Obtener Servicios:** Permite consultar y visualizar la información de los servicios disponibles.
+   - **Eliminar Servicios:** Permite eliminar servicios que ya no se ofrecen o que han cambiado.
+   - **Actualizar Servicios:** Permite modificar la información de un servicio, por ejemplo, su horario de funcionamiento o tarifas.
 
-**4.Gestion de staff (Empleados)**
+**4. Gestión de staff (Empleados):**
+   - **Añadir Empleados:** Permite registrar nuevos empleados del zoológico, incluyendo información como nombre, cargo, fecha de contratación, etc.
+   - **Obtener Empleados:** Permite consultar y visualizar la información de los empleados activos en el zoológico.
+   - **Eliminar Empleados:** Permite dar de baja a empleados que ya no trabajan en el zoológico.
+   - **Actualizar Empleados:** Permite modificar la información de un empleado, como su salario o cargo.
 
-**5. Gestion de Emergencias**
+**5. Gestión de Emergencias:**
+   - **Registrar Emergencias:** Permite documentar situaciones de emergencia como incendios, escapes de animales peligrosos, o accidentes graves.
+   - **Obtener Información de Emergencias:** Permite acceder a detalles sobre las emergencias pasadas, incluyendo cómo se manejaron y qué medidas se tomaron.
+   - **Eliminar Registros de Emergencias:** Permite archivar registros de emergencias que ya se han resuelto y no son relevantes.
+   - **Actualizar Información de Emergencias:** Permite agregar información adicional o actualizar el estado de una emergencia en curso.
 
-**6. Gestion de taquilleria**
+**6. Gestión de Taquillería:**
+   - **Venta de Boletos:** Permite registrar la venta de boletos de entrada al zoológico.
+   - **Obtener Información de Ventas:** Permite consultar y visualizar datos sobre las ventas de boletos, como ingresos generados y asistencia.
+   - **Eliminar Ventas:** Permite anular ventas en caso de errores o devoluciones.
+
+Estas operaciones de gestión te ayudarán a administrar de manera efectiva un zoológico, asegurando un seguimiento adecuado de los animales, hábitats, servicios, personal y situaciones de emergencia, así como la gestión de la taquillería para los visitantes.
 
 
      
