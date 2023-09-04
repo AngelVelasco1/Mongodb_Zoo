@@ -93,6 +93,7 @@ export const getServiceStaffBestSeller = async()=>{
     const staff = new Staff();
     return await staff.getStaffBestSeller();
 };
+
 // 11. obtener los empleados por salario.
 export const getServiceStaffBySalary = async(salary)=>{
     const staff = new Staff();

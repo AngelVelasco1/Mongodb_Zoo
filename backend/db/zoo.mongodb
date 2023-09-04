@@ -727,6 +727,7 @@ db.staff.aggregate([
             eps: "$employee.eps",
             phone_number: "$employee.phone_number",
             sales: 1
+
         }
     }
 ])
