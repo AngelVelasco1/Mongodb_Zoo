@@ -135,7 +135,21 @@ El proyecto contiene 4 versiones
 ## Gen Token
 - Método: **POST**
 - URL: `http://localhost:8090/login`
+- Example json rol admin
+```json
+  {
+    "name": "Pedro",
+    "password": "admin"
+  }
+```
+- Example json rol area de animales
 
+```json
+  {
+      "name": "Farid",
+      "password": "animales"
+  }
+```
 
 > ⚠️ **Importante:**
 > Una vez generado el token, copia y peguelo en un header de tipo authorization con un prefijo ``Bearer``
@@ -144,8 +158,9 @@ El proyecto contiene 4 versiones
 
 
 ## CRUD 
+
 ###  `obtener Habitats`
-Obtendremos un habitat especifico
+
 
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/habitats?id=2`
@@ -154,7 +169,6 @@ Obtendremos un habitat especifico
 > Este endpoint usa como parametro el id del habitat,Debes especificarlo con la sintaxis ?=id.
 
 ###  `crear Habitats`
-Podremos crear una habitat nuevo
 
 - Método: **POST**
 - URL: `http://localhost:8090/api/use/habitats`
@@ -166,7 +180,7 @@ Podremos crear una habitat nuevo
         "weather": "Sunny",
         "residents": ["Lion", "Zebra", "Monkey"],
         "personnel": 4,
-        "upcomingMaintenance": new Date("2023-09-15")
+        "upcomingMaintenance":"2023-09-15"
     }
   ```
 
@@ -183,7 +197,7 @@ Podremos crear una habitat nuevo
         "weather": "Cloudy",
         "residents": ["Lion", "Zebra", "Leopard"],
         "personnel": 4,
-        "upcomingMaintenance": new Date("2023-09-16")
+        "upcomingMaintenance":"2023-09-16"
     }
   ```
 
@@ -194,6 +208,290 @@ Podremos crear una habitat nuevo
 - Método: **DELETE**
 - URL: `http://localhost:8090/api/use/habitats?id=2`
 
+
+
+
+
+###  `obtener animals`
+
+
+- Método: **GET**
+- URL: `http://localhost:8090/api/use/animals?id=2`
+
+> ⚠️ **Importante:**
+> Este endpoint usa como parametro el id del animal,Debes especificarlo con la sintaxis ?=id.
+
+###  `crear animals`
+
+- Método: **POST**
+- URL: `http://localhost:8090/api/use/animals`
+-  Cuerpo de la solicitud
+  ```json
+   {
+       "id_staff": 3, 
+        "animal_name": "Simba",
+        "species": "Lion",
+        "aprox_age": 8,
+        "location": "Savannah",
+        "descendents": ["Cub 1", "Cub 2"],
+        "origin": "Captive breeding program",
+        "vacune": 1,
+        "entry_date":"2021-03-10",
+        "reason": "Captive bred" 
+   }
+  ```
+
+
+
+###  `actualizar animals`
+- Método: **PUT**
+- URL: `http://localhost:8090/api/use/animals?id=2`
+-  Cuerpo de la solicitud
+  ```json
+   {
+        "id_staff": 3, 
+        "animal_name": "Simba",
+        "species": "Lion",
+        "aprox_age": 8,
+        "location": "Savannah",
+        "descendents": ["Cub 1", "Cub 2"],
+        "origin": "Captive breeding program",
+        "vacune": 1,
+        "entry_date":"2021-03-10",
+        "reason": "Captive bred" 
+    }
+  ```
+
+> ⚠️ **Importante:**
+> Este endpoint usa como parametro el id del animal, Debes especificarlo con la sintaxis ?=id
+###  `eliminar animals`
+
+- Método: **DELETE**
+- URL: `http://localhost:8090/api/use/animals?id=2`
+
+
+
+
+
+###  `obtener emergencies`
+
+
+- Método: **GET**
+- URL: `http://localhost:8090/api/use/emergencies?id=2`
+
+> ⚠️ **Importante:**
+> Este endpoint usa como parametro el id del emergencia,Debes especificarlo con la sintaxis ?=id.
+
+###  `crear emergencies`
+
+- Método: **POST**
+- URL: `http://localhost:8090/api/use/emergencies`
+-  Cuerpo de la solicitud
+  ```json
+   {
+          "animalId": 8,
+      "vetId": 4,
+      "description": "Severe injury on front paw",
+      "date": "2023-08-05",
+      "emergencyType": "Medical"
+       
+    }
+  ```
+
+
+
+###  `actualizar emergencies`
+- Método: **PUT**
+- URL: `http://localhost:8090/api/use/emergencies?id=2`
+-  Cuerpo de la solicitud
+  ```json
+   {
+           "animalId": 8,
+      "vetId": 4,
+      "description": "Severe injury on front paw",
+      "date":"2023-08-05",
+      "emergencyType": "Medical"
+    }
+  ```
+
+> ⚠️ **Importante:**
+> Este endpoint usa como parametro el id del emergencia, Debes especificarlo con la sintaxis ?=id
+###  `eliminar emergencies`
+
+- Método: **DELETE**
+- URL: `http://localhost:8090/api/use/emergencies?id=2`
+
+
+
+
+###  `obtener services`
+
+
+- Método: **GET**
+- URL: `http://localhost:8090/api/use/services?id=2`
+
+> ⚠️ **Importante:**
+> Este endpoint usa como parametro el id del servicio,Debes especificarlo con la sintaxis ?=id.
+
+###  `crear services`
+
+- Método: **POST**
+- URL: `http://localhost:8090/api/use/services`
+-  Cuerpo de la solicitud
+  ```json
+   {
+      "name": "Gift Shop",
+        "productName": "Plush Toy",
+        "staffId": 8,
+        "date": "2023-08-01",
+        "quantity": 30,
+        "price": 10,
+        "devolutions": 2,
+        "reason": "Defective stitching",
+        "refund": 20
+    }
+  ```
+
+
+
+###  `actualizar services`
+- Método: **PUT**
+- URL: `http://localhost:8090/api/use/services?id=2`
+-  Cuerpo de la solicitud
+  ```json
+   {
+      "name": "Gift Shop",
+        "productName": "Plush Toy",
+        "staffId": 8,
+        "date": "2023-08-01",
+        "quantity": 30,
+        "price": 10,
+        "devolutions": 2,
+        "reason": "Defective stitching",
+        "refund": 20
+    }
+  ```
+
+> ⚠️ **Importante:**
+> Este endpoint usa como parametro el id del servicio, Debes especificarlo con la sintaxis ?=id
+###  `eliminar services`
+
+- Método: **DELETE**
+- URL: `http://localhost:8090/api/use/services?id=2`
+
+
+
+
+###  `obtener staffs`
+
+
+- Método: **GET**
+- URL: `http://localhost:8090/api/use/staffs?id=2`
+
+> ⚠️ **Importante:**
+> Este endpoint usa como parametro el id del staff,Debes especificarlo con la sintaxis ?=id.
+
+###  `crear staffs`
+
+- Método: **POST**
+- URL: `http://localhost:8090/api/use/staffs`
+-  Cuerpo de la solicitud
+  ```json
+   {
+       "name": "Emily Johnson",
+        "startContract": "2022-01-15",
+        "endContract": "2023-03-29",
+        "salary": 45000,
+        "eps": "HealthCare Inc.",
+        "phoneNumber": 1234567890,
+        "emergency_contact": {
+          "contactName": "Michael Johnson",
+          "relationship": "Spouse",
+          "contactNumber": 9876543210
+        }
+    }
+  ```
+
+
+
+###  `actualizar staffs`
+- Método: **PUT**
+- URL: `http://localhost:8090/api/use/staffs?id=2`
+-  Cuerpo de la solicitud
+  ```json
+   {
+      
+       "name": "Emily Johnson",
+        "startContract": "2022-01-15",
+        "endContract": "2023-03-29",
+        "salary": 45000,
+        "eps": "HealthCare Inc.",
+        "phoneNumber": 1234567890,
+        "emergency_contact": {
+          "contactName": "Michael Johnson",
+          "relationship": "Spouse",
+          "contactNumber": 9876543210
+        }
+    
+    }
+  ```
+
+> ⚠️ **Importante:**
+> Este endpoint usa como parametro el id del staff, Debes especificarlo con la sintaxis ?=id
+###  `eliminar staffs`
+
+- Método: **DELETE**
+- URL: `http://localhost:8090/api/use/staffs?id=2`
+
+
+
+###  `obtener tacoShop`
+
+
+- Método: **GET**
+- URL: `http://localhost:8090/api/use/tacoShop?id=2`
+
+> ⚠️ **Importante:**
+> Este endpoint usa como parametro el id del taco shop,Debes especificarlo con la sintaxis ?=id.
+
+###  `crear tacoshop`
+
+- Método: **POST**
+- URL: `http://localhost:8090/api/use/tacoShop`
+-  Cuerpo de la solicitud
+  ```json
+   {
+       "amount": 5,
+      "date": "2023-08-01",
+      "seller": "Juan",
+      "ticketType": "Regular",
+      "ticketPrice": 8
+    }
+  ```
+
+
+
+###  `actualizar tacoshop`
+- Método: **PUT**
+- URL: `http://localhost:8090/api/use/tacoShop?id=2`
+-  Cuerpo de la solicitud
+  ```json
+   {
+       "amount": 5,
+      "date": "2023-08-01",
+      "seller": "Juan",
+      "ticketType": "Regular",
+      "ticketPrice": 8
+
+    }
+  ```
+
+> ⚠️ **Importante:**
+> Este endpoint usa como parametro el id del taco shop, Debes especificarlo con la sintaxis ?=id
+###  `eliminar tacoshop`
+
+- Método: **DELETE**
+- URL: `http://localhost:8090/api/use/tacoShop?id=2`
 
 
 ### Consultas especificas
