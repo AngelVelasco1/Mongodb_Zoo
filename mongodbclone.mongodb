@@ -136,7 +136,7 @@ use("zoo_db");
 db.emergencies.aggregate([
     {
         $match: {
-            date: { $gte: "2023-08-05", $lte: "2023-08-20" }
+            date: { $gte: new Date("2023-08-05"), $lte: new Date("2023-08-20") }
         }
     }
 ])
