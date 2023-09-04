@@ -114,7 +114,21 @@ ATLAS_DB = "zoo_db"
 3.Clave privada 
 JWT_SECRET = "campus"
 ```
+### Versiones
+El proyecto contiene 4 versiones
+- 2.0.1 es referente al area comercial
+    - Tiene acceso a taco_shop y Servicios con todos sus metodos POST, GET, PUT, DELETE
+- 2.0.2 es referente al area de animales
+    - Tiene acceso a habitat Y emergencias con todos sus metodos POST, GET, PUT, DELETE
+    - Tiene acceso a animales. Con metodos GET y PUT 
 
+- 2.0.3 es referente al area de talento humano
+    - Tiene acceso a staff. Con metodos POST, GET Y PUT.
+- 1.0.0 es referente al Admin
+    - Tiene acceso a todas las areas y versiones con todos los metodos GET, POST, DELETE, PUT
+
+> ⚠️ **Importante:**
+> Esas versiones son añadidas en los headers como tipo content-type con valor de la version que usaralas (2.0.1, 2.0.2, 2.0.3,  1.0.0  )
 
 ## Endpoints Principales
 
