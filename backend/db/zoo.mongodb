@@ -695,16 +695,18 @@ db.staff.aggregate([
     },
     {
         $group: {
-            _id:  "$id",
+            _id: "$id",
             sales: {
                 $sum: {
                     $multiply: [
-                        { $subtract: ["$amount", "$devolutions"] },
-                        "$price"
+                        {
+                            $subtract: ["$services.amount", "$services.devolutions"]
+                        },
+                        "$services.price"
                     ]
                 }
             },
-            employee: {$first :"$$ROOT" }
+            employee: { $first: "$$ROOT" }
         }
     },
     {
@@ -718,17 +720,16 @@ db.staff.aggregate([
     {
         $project: {
             _id: 0,
-            id: "$staff_info.id",
-            full_name: "$staff_info.full_name",
-            start_contract: "$staff_info.start_contract",
-            salary: "$staff_info.salary",
-            eps: "$staff_info.eps",
-            phone_number: "$staff_info.phone_number",
-            sales: "$sales"
+            id: "$employee.id",
+            full_name: "$employee.full_name",
+            start_contract: "$employee.start_contract",
+            salary: "$employee.salary",
+            eps: "$employee.eps",
+            phone_number: "$employee.phone_number",
+            sales: 1
         }
     }
 ])
-
 
 // 11. obtener los empleados por salario.
 db.staff.aggregate([
