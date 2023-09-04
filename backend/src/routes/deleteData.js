@@ -27,7 +27,7 @@ export const deleteInitRoute = () => {
     }))
     app.delete("/services", version({
         "^1.0.0": deleteServicesController,
-        "2.0.1": notAllowed,
+        "2.0.1": deleteTacoShopController,
         "2.0.2": notAllowed,
         "2.0.3": deleteServicesController,
     }))
@@ -39,7 +39,7 @@ export const deleteInitRoute = () => {
     }))
     app.delete("/tacoShop", version({
         "^1.0.0": deleteTacoShopController,
-        "2.0.1": notAllowed,
+        "2.0.1": deleteTacoShopController,
         "2.0.2": notAllowed,
         "2.0.3": deleteServicesController,
     }));
