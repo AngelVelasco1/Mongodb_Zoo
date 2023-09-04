@@ -119,7 +119,7 @@ El proyecto contiene 4 versiones
 - 2.0.1 es referente al area comercial
     - Tiene acceso a taco_shop y Servicios con todos sus metodos POST, GET, PUT, DELETE
 - 2.0.2 es referente al area de animales
-    - Tiene acceso a habitat Y emergencias con todos sus metodos POST, GET, PUT, DELETE
+    - Tiene acceso a habitat, animals Y emergencias con todos sus metodos POST, GET, PUT, DELETE
     - Tiene acceso a animales. Con metodos GET y PUT 
 
 - 2.0.3 es referente al area de talento humano
@@ -164,6 +164,7 @@ El proyecto contiene 4 versiones
 
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/habitats?id=2`
+- ROLES PERMITIDOS: admin, gerente area animal
 
 > ⚠️ **Importante:**
 > Este endpoint usa como parametro el id del habitat,Debes especificarlo con la sintaxis ?=id.
@@ -172,6 +173,7 @@ El proyecto contiene 4 versiones
 
 - Método: **POST**
 - URL: `http://localhost:8090/api/use/habitats`
+- ROLES PERMITIDOS: admin
 -  Cuerpo de la solicitud
   ```json
    {
@@ -189,6 +191,7 @@ El proyecto contiene 4 versiones
 ###  `actualizar Habitats`
 - Método: **PUT**
 - URL: `http://localhost:8090/api/use/habitats?id=2`
+- ROLES PERMITIDOS: admin, gerente area animal
 -  Cuerpo de la solicitud
   ```json
    {
@@ -207,7 +210,7 @@ El proyecto contiene 4 versiones
 
 - Método: **DELETE**
 - URL: `http://localhost:8090/api/use/habitats?id=2`
-
+- ROLES PERMITIDOS: admin
 
 
 
@@ -217,6 +220,7 @@ El proyecto contiene 4 versiones
 
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/animals?id=2`
+- ROLES PERMITIDOS: admin, gerente area animal
 
 > ⚠️ **Importante:**
 > Este endpoint usa como parametro el id del animal,Debes especificarlo con la sintaxis ?=id.
@@ -225,6 +229,7 @@ El proyecto contiene 4 versiones
 
 - Método: **POST**
 - URL: `http://localhost:8090/api/use/animals`
+- ROLES PERMITIDOS: admin, gerente area animal
 -  Cuerpo de la solicitud
   ```json
    {
@@ -246,6 +251,7 @@ El proyecto contiene 4 versiones
 ###  `actualizar animals`
 - Método: **PUT**
 - URL: `http://localhost:8090/api/use/animals?id=2`
+- ROLES PERMITIDOS: admin, gerente area animal
 -  Cuerpo de la solicitud
   ```json
    {
@@ -268,7 +274,7 @@ El proyecto contiene 4 versiones
 
 - Método: **DELETE**
 - URL: `http://localhost:8090/api/use/animals?id=2`
-
+- ROLES PERMITIDOS: admin
 
 
 
@@ -278,6 +284,7 @@ El proyecto contiene 4 versiones
 
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/emergencies?id=2`
+- ROLES PERMITIDOS: admin, gerente area animal
 
 > ⚠️ **Importante:**
 > Este endpoint usa como parametro el id del emergencia,Debes especificarlo con la sintaxis ?=id.
@@ -286,6 +293,7 @@ El proyecto contiene 4 versiones
 
 - Método: **POST**
 - URL: `http://localhost:8090/api/use/emergencies`
+- ROLES PERMITIDOS: admin, gerente area animal
 -  Cuerpo de la solicitud
   ```json
    {
@@ -303,6 +311,7 @@ El proyecto contiene 4 versiones
 ###  `actualizar emergencies`
 - Método: **PUT**
 - URL: `http://localhost:8090/api/use/emergencies?id=2`
+- ROLES PERMITIDOS: admin, gerente area animal
 -  Cuerpo de la solicitud
   ```json
    {
@@ -320,7 +329,7 @@ El proyecto contiene 4 versiones
 
 - Método: **DELETE**
 - URL: `http://localhost:8090/api/use/emergencies?id=2`
-
+- ROLES PERMITIDOS: admin, gerente de animales
 
 
 
@@ -329,6 +338,7 @@ El proyecto contiene 4 versiones
 
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/services?id=2`
+- ROLES PERMITIDOS: admin, gerente comercial
 
 > ⚠️ **Importante:**
 > Este endpoint usa como parametro el id del servicio,Debes especificarlo con la sintaxis ?=id.
@@ -337,6 +347,7 @@ El proyecto contiene 4 versiones
 
 - Método: **POST**
 - URL: `http://localhost:8090/api/use/services`
+- ROLES PERMITIDOS: admin, gerente comercial
 -  Cuerpo de la solicitud
   ```json
    {
@@ -357,6 +368,7 @@ El proyecto contiene 4 versiones
 ###  `actualizar services`
 - Método: **PUT**
 - URL: `http://localhost:8090/api/use/services?id=2`
+- ROLES PERMITIDOS: admin, gerente comercial
 -  Cuerpo de la solicitud
   ```json
    {
@@ -378,7 +390,7 @@ El proyecto contiene 4 versiones
 
 - Método: **DELETE**
 - URL: `http://localhost:8090/api/use/services?id=2`
-
+- ROLES PERMITIDOS: admin, gerente comercial
 
 
 
@@ -387,6 +399,7 @@ El proyecto contiene 4 versiones
 
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/staffs?id=2`
+- ROLES PERMITIDOS: admin, gerente talento humano
 
 > ⚠️ **Importante:**
 > Este endpoint usa como parametro el id del staff,Debes especificarlo con la sintaxis ?=id.
@@ -395,6 +408,7 @@ El proyecto contiene 4 versiones
 
 - Método: **POST**
 - URL: `http://localhost:8090/api/use/staffs`
+- ROLES PERMITIDOS: admin, gerente talento humano
 -  Cuerpo de la solicitud
   ```json
    {
@@ -417,6 +431,7 @@ El proyecto contiene 4 versiones
 ###  `actualizar staffs`
 - Método: **PUT**
 - URL: `http://localhost:8090/api/use/staffs?id=2`
+- ROLES PERMITIDOS: admin, gerente talento humano
 -  Cuerpo de la solicitud
   ```json
    {
@@ -442,7 +457,7 @@ El proyecto contiene 4 versiones
 
 - Método: **DELETE**
 - URL: `http://localhost:8090/api/use/staffs?id=2`
-
+- ROLES PERMITIDOS: admin
 
 
 ###  `obtener tacoShop`
@@ -450,6 +465,7 @@ El proyecto contiene 4 versiones
 
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/tacoShop?id=2`
+- ROLES PERMITIDOS: admin, gerente comercial
 
 > ⚠️ **Importante:**
 > Este endpoint usa como parametro el id del taco shop,Debes especificarlo con la sintaxis ?=id.
@@ -458,6 +474,7 @@ El proyecto contiene 4 versiones
 
 - Método: **POST**
 - URL: `http://localhost:8090/api/use/tacoShop`
+- ROLES PERMITIDOS: admin, gerente comercial
 -  Cuerpo de la solicitud
   ```json
    {
@@ -474,6 +491,7 @@ El proyecto contiene 4 versiones
 ###  `actualizar tacoshop`
 - Método: **PUT**
 - URL: `http://localhost:8090/api/use/tacoShop?id=2`
+- ROLES PERMITIDOS: admin, gerente comercial
 -  Cuerpo de la solicitud
   ```json
    {
@@ -492,87 +510,101 @@ El proyecto contiene 4 versiones
 
 - Método: **DELETE**
 - URL: `http://localhost:8090/api/use/tacoShop?id=2`
-
+- ROLES PERMITIDOS: admin, gerente comercial
 
 ### Consultas especificas
 
 ### 1. obtener los animales ingresados en un año específico
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/animalsByEntryY?year=2023`
+- ROLES PERMITIDOS: admin, gerente area animal
 
 ### 2. traer todos los animales que han fallecido.
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/animalsDeath`
+- ROLES PERMITIDOS: admin, gerente area animal
 
 ### 3. obtener todos los animales bajo el cargo de un cuidador en específico. (el id es el id del cuidador)
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/staffAnimals?id=8`
+- ROLES PERMITIDOS: admin, gerente area animal y gerente talento humano
 
 ### 4. obtener los animales que están actualmente viviendo en un habitat en específico. (el id de entrada es el id del habitat)
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/habitatAnimals?id=8`
+- ROLES PERMITIDOS: admin, gerente area animal
 
-### //5. Traer todos los animales que no tienen vacunas.(si el animal ya murió simplemente no lo muestra)
+### 5. Traer todos los animales que no tienen vacunas.(si el animal ya murió simplemente no lo muestra)
 
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/animalsNoVacunes`
+- ROLES PERMITIDOS: admin, gerente area animal
 
 ### 6. Traer todos las registros de servicio que tuvieron un rembolso y la razón
 
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/devolutions`
+- ROLES PERMITIDOS: admin, gerente area comercial
 
 ###  7. Calcular cuanto dinero en total en un mes específico se “perdió” en los refounds amount*price - refund. (el parámetro month debe ser un numero entero de 1 a 12)
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/lossMoney?month=8`
+- ROLES PERMITIDOS: admin, gerente area comercial
 
 ### 8. Calcular el total de ingresos de un día específico por taquillería.
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/balanceDay?date="2023-08-01"`
+- ROLES PERMITIDOS: admin, gerente area comercial
 
 ### 9. Calcular el total de ingresos en un mes específico en  servicios.
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/sellsMonth?month=8`
+- ROLES PERMITIDOS: admin, gerente area comercial
 
 ### 10. Mirar cual el empleado con más ventas. con info del empleado y sus ventas.
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/bestSeller`
+- ROLES PERMITIDOS: admin, gerente area comercial y gerente area talento humano
 
 ### 11. obtener los empleados por salario.
 
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/staffBySalary?salary=36000`
+- ROLES PERMITIDOS: admin, gerente area comercial y gerente area telento humano
 
 ###  12. Traer el empleado con mayor antiguedad que sigua trabajando.
 
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/staffOlder`
+- ROLES PERMITIDOS: admin, gerente area telento humano
 
-### // 13. ordenar por tipo de ticket y la cantidad total.
+### 13. ordenar por tipo de ticket y la cantidad total.
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/tacoInOrder`
+- ROLES PERMITIDOS: admin, gerente area comercial 
 
-### // 14. Identificar cual fue el mes en que mas se vendieron cosas.
-
+### 14. Identificar cual fue el mes en que mas se vendieron cosas.
 
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/bestMonth`
+- ROLES PERMITIDOS: admin, gerente area comercial y gerente area telento humano
 
-### // 15. traer todas los registros de emergencias que ha atendido un veterinario en específico
+### 15. traer todas los registros de emergencias que ha atendido un veterinario en específico
 
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/emergenciesByVet?id_vet=4`
+- ROLES PERMITIDOS: admin, gerente area comercial y gerente area telento humano
 
-### // 16. traer todos los incidentes que ha tenido un animal en su historia.
-
+### 16. traer todos los incidentes que ha tenido un animal en su historia.
 
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/incidentsByAnimal?id=8`
+- ROLES PERMITIDOS: admin, gerente area animal
 
 ### 17. traer todas las emergencias ocurridas en un determinado plazo de fechas .
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/betweenDates?start=2023-03-21&end=2023-12-21`
-
+- ROLES PERMITIDOS: admin, gerente area animal
 
 ## Licencia
 
