@@ -71,24 +71,37 @@ El proyecto  utilizará las siguientes tecnologías:
 
 ### Instalación
 
-1. Clona este repositorio en tu máquina local:
+#### Instalacion y uso de nvm
+1. Para usar este proyecto despues de descargarlo asegurate de estar usando la version 18.16.1 de nvm, para eso vas a mandar el siguiente comando en la terminal.
+    ```shell
+    nvm install 18.16.1
+    ```
+
+2. Ahora vas a poner la version en uso con el siguiente comando.
+    ```shell
+    nvm use 18.16.1
+    ```
+
+3. Clona este repositorio en tu máquina local:
 
    ```shell
-   git clone https://github.com/tu-usuario/nombre-del-proyecto.git
+   git clone https://github.com/AngelVelasco1/Mongodb_Zoo
    ```
 
-2. Navega hasta el directorio del proyecto:
+  * *Abre el repositorio en tu editor de código*
+
+4. Navega hasta el directorio del proyecto:
 
    ```shell
    cd backend
    ```
-3. Instala las dependencias del proyecto:
+5. Instala las dependencias del proyecto:
 
    ```shell
    npm i
    ```
 
-4. Crea las colecciones Mongo usando la extension MongoDB for VSCO
+6. Crea las colecciones Mongo usando la extension MongoDB for VSCO
     - En este caso de que desee manejar la base de datos de manera local.
     Dirijase a la ruta ./backend/db/zoo.mongodb, ahí encontrará el archivo llamado zoo.mongodb.
     Para ejecutar este archivo instale la extensión de visual studio code "MongoDB". Una vez instalada la extensión tiene que realizar todo el proceso de creación y conexión con una cuenta MongoAtlas. Para más información referente a este tema recomendamos leer la documentación oficial
@@ -128,7 +141,7 @@ El proyecto contiene 4 versiones
     - Tiene acceso a todas las areas y versiones con todos los metodos GET, POST, DELETE, PUT
 
 > ⚠️ **Importante:**
-> Esas versiones son añadidas en los headers como tipo content-type con valor de la version que usaralas (2.0.1, 2.0.2, 2.0.3,  1.0.0  )
+> Esas versiones son añadidas en los headers como tipo Accept-Version con valor de la version que usaralas (2.0.1, 2.0.2, 2.0.3,  1.0.0  )
 
 ## Endpoints Principales
 
