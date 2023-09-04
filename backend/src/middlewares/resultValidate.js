@@ -85,10 +85,7 @@ export const staffPostValidate = async (req, res, next) => {
     "emergency_contact.contact_name": contactName,
     "emergency_contact.relationship": relationship,
     "emergency_contact.contact_number": contactNumber
-
     }
-    console.log(req.body);
-    console.log(data);
     for (const key in data) {   
         if (data[key] === undefined) delete data[key]
     }
