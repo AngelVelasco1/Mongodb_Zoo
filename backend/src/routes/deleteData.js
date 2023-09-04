@@ -10,39 +10,27 @@ export const deleteInitRoute = () => {
     app.use(passportHelper.authenticate("bearer", {session: false}));
 
     app.delete("/habitats", version({
-        "^1.0.0": deleteHabitatController,
-        "^2.0.0": deleteHabitatController,
-      
+        "^1.0.0": deleteHabitatController
     }))
 
     app.delete("/animals", version({
         "^1.0.0": deleteAnimalsController,
-        "^2.0.0": deleteAnimalsController,
-
     }))
 
     app.delete("/emergencies", version({
         "^1.0.0": deleteEmergenciesController,
-        "^2.0.0": deleteEmergenciesController,
-
     }))
 
     app.delete("/services", version({
         "^1.0.0": deleteServicesController,
-        "^2.0.0": deleteServicesController,
-
     }))
 
     app.delete("/staffs", version({
         "^1.0.0": deleteStaffsController,
-        "^2.0.0": deleteStaffsController,
-
     }))
 
     app.delete("/tacoShop", version({
         "^1.0.0": deleteTacoShopController,
-        "^2.0.0": deleteTacoShopController,
-
     }));
     return app;
 }
