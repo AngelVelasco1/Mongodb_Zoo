@@ -148,7 +148,7 @@ El proyecto contiene 4 versiones
 Obtendremos un habitat especifico
 
 - Método: **GET**
-- URL: `http://localhost:8090/api/use/habitats/?id=2`
+- URL: `http://localhost:8090/api/use/habitats?id=2`
 
 > ⚠️ **Importante:**
 > Este endpoint usa como parametro el id del habitat,Debes especificarlo con la sintaxis ?=id.
@@ -174,7 +174,7 @@ Podremos crear una habitat nuevo
 
 ###  `actualizar Habitats`
 - Método: **PUT**
-- URL: `http://localhost:8090/api/use/habitats/?=2`
+- URL: `http://localhost:8090/api/use/habitats?id=2`
 -  Cuerpo de la solicitud
   ```json
    {
@@ -192,7 +192,7 @@ Podremos crear una habitat nuevo
 ###  `eliminar Habitats`
 
 - Método: **DELETE**
-- URL: `http://localhost:8090/api/use/habitats/?=2`
+- URL: `http://localhost:8090/api/use/habitats?id=2`
 
 
 
@@ -200,7 +200,7 @@ Podremos crear una habitat nuevo
 
 ### 1. obtener los animales ingresados en un año específico
 - Método: **GET**
-- URL: `http://localhost:8090/api/use/animalsByEntryY`
+- URL: `http://localhost:8090/api/use/animalsByEntryY?year=2023`
 
 ### 2. traer todos los animales que han fallecido.
 - Método: **GET**
@@ -208,44 +208,44 @@ Podremos crear una habitat nuevo
 
 ### 3. obtener todos los animales bajo el cargo de un cuidador en específico. (el id es el id del cuidador)
 - Método: **GET**
-- URL: `http://localhost:8090/api/use/staffAnimals`
+- URL: `http://localhost:8090/api/use/staffAnimals?id=8`
 
 ### 4. obtener los animales que están actualmente viviendo en un habitat en específico. (el id de entrada es el id del habitat)
 - Método: **GET**
-- URL: `http://localhost:8090/api/use/habitatAnimals`
+- URL: `http://localhost:8090/api/use/habitatAnimals?id=8`
 
 ### //5. Traer todos los animales que no tienen vacunas.(si el animal ya murió simplemente no lo muestra)
 
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/animalsNoVacunes`
 
-### 6. 6. Traer todos las registros de servicio que tuvieron un rembolso y la razón
+### 6. Traer todos las registros de servicio que tuvieron un rembolso y la razón
 
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/devolutions`
 
-### / 7. Calcular cuanto dinero en total en un mes específico se “perdió” en los refounds amount*price - refund. (el parámetro month debe ser un numero entero de 1 a 12)
+###  7. Calcular cuanto dinero en total en un mes específico se “perdió” en los refounds amount*price - refund. (el parámetro month debe ser un numero entero de 1 a 12)
 - Método: **GET**
-- URL: `http://localhost:8090/api/use/lossMoney`
+- URL: `http://localhost:8090/api/use/lossMoney?month=8`
 
 ### 8. Calcular el total de ingresos de un día específico por taquillería.
 - Método: **GET**
-- URL: `http://localhost:8090/api/use/balanceDay`
+- URL: `http://localhost:8090/api/use/balanceDay?date="2023-08-01"`
 
-### 9. Calcular el total de ingresos en un mes específico en taquillería y servicios.
+### 9. Calcular el total de ingresos en un mes específico en  servicios.
 - Método: **GET**
-- URL: `http://localhost:8090/api/use/sellsMonth`
+- URL: `http://localhost:8090/api/use/sellsMonth?month=8`
 
-### 10. // 10. Mirar cual el empleado con más ventas. con info del empleado y sus ventas.
+### 10. Mirar cual el empleado con más ventas. con info del empleado y sus ventas.
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/bestSeller`
 
-### 11. // 11. obtener los empleados por salario.
+### 11. obtener los empleados por salario.
 
 - Método: **GET**
-- URL: `http://localhost:8090/api/use/staffBySalary`
+- URL: `http://localhost:8090/api/use/staffBySalary?salary=36000`
 
-### // 12. Traer el empleado con mayor antiguedad que sigua trabajando.
+###  12. Traer el empleado con mayor antiguedad que sigua trabajando.
 
 - Método: **GET**
 - URL: `http://localhost:8090/api/use/staffOlder`
@@ -263,17 +263,17 @@ Podremos crear una habitat nuevo
 ### // 15. traer todas los registros de emergencias que ha atendido un veterinario en específico
 
 - Método: **GET**
-- URL: `http://localhost:8090/api/use/emergenciesByVet`
+- URL: `http://localhost:8090/api/use/emergenciesByVet?id_vet=4`
 
 ### // 16. traer todos los incidentes que ha tenido un animal en su historia.
 
 
 - Método: **GET**
-- URL: `http://localhost:8090/api/use/incidentsByAnimal`
+- URL: `http://localhost:8090/api/use/incidentsByAnimal?id=8`
 
 ### 17. traer todas las emergencias ocurridas en un determinado plazo de fechas .
 - Método: **GET**
-- URL: `http://localhost:8090/api/use/betweenDates`
+- URL: `http://localhost:8090/api/use/betweenDates?start=2023-03-21&end=2023-12-21`
 
 
 ## Licencia

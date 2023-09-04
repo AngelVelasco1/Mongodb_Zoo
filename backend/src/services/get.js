@@ -81,10 +81,8 @@ export const getServiceBalanceDay = async(date)=>{
 // 9. Calcular el total de ingresos en un mes específico en taquillería y servicios.
 export const getServiceSellsMonth = async(month)=>{
     const service = new Services();
-    const taco = new tacoShop() 
     const result1 =  await service.getSellsMonth(month);
-    const result2 = await taco.getTacoSellsMonth(month);
-    return {result1, result2}
+    return result1;
 };
 
 // 10. Mirar cual el empleado con más ventas. con info del empleado y sus ventas.
