@@ -8,6 +8,10 @@ Este proyecto tiene como objetivo desarrollar un sistema de administración de u
 4. Validacion con DTO
 5. Endpoints como servicios
 
+## Diagrama MER
+![](./img/img.png)
+
+
 ## Funcionalidades principales
 
 El sistema de administración de las bodegas cuenta con 
@@ -36,7 +40,6 @@ El proyecto  utilizará las siguientes tecnologías:
 - Base de datos: [MongoDB](https://www.mongodb.com/es)
 - Framework: [Express.js](https://expressjs.com/)
 
-## Diagrama Base de Datos
 
 ## Configuración
 
