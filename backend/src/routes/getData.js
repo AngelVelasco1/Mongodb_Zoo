@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { getHabitatsController, getAnimalsController, getEmergenciesController, getServicesController, getStaffsController, getTacoShopController } from "../controllers/getData.js";
-import { AnimalsByEntryYController, AnimalsDeathController, StaffAnimalsController, HabitatAnimalsController, getAnimalsNoVacunesController, DevolutionsController, LossMoneyController, BalanceDayController, SellsMonthController, StaffBySalaryController, StaffOlderController, TacoInOrderController, BestMonthController, EmergenciesByVetController, IncidentsByAnimalController, BetweenDatesController, notAllowed  } from "../controllers/getData.js";
+import { AnimalsByEntryYController, AnimalsDeathController, StaffAnimalsController, HabitatAnimalsController, getAnimalsNoVacunesController, DevolutionsController, LossMoneyController, BalanceDayController, SellsMonthController, StaffBySalaryController, StaffOlderController, TacoInOrderController, BestMonthController, EmergenciesByVetController, IncidentsByAnimalController, BetweenDatesController, notAllowed, bestSellerController  } from "../controllers/getData.js";
+
 import passportHelper  from "../helpers/passport.js";
 import routesVersioning from "express-routes-versioning";
 
@@ -96,6 +97,10 @@ export const getInitRoute = () => {
 
     app.get("/balanceDay", version({
         "^1.0.0": BalanceDayController,
+        "^2.0.0": BalanceDayController,
+    }));
+    app.get("/balanceDay", version({
+        "^1.0.0": BalanceDayController,
         "2.0.1": BalanceDayController,
         "2.0.2": notAllowed,
         "2.0.3": notAllowed,
@@ -155,6 +160,12 @@ export const getInitRoute = () => {
         "2.0.1": notAllowed,
         "2.0.2": BetweenDatesController,
         "2.0.3": notAllowed,
+    }))
+    app.get("/bestSeller", version({
+        "^1.0.0": bestSellerController,
+        "2.0.1": bestSellerController,
+        "2.0.2": notAllowed,
+        "2.0.3": bestSellerController,
     }))
     return app;
 }

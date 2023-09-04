@@ -1,7 +1,7 @@
 import { getServiceHabitat, getServiceAnimals, getServiceEmergencies, getServiceServices, getServiceStaff, getServiceTacoShop  } from "../services/get.js";
 import { getServiceAnimalsByEntryY, getServiceAnimalsDeath, getServiceStaffAnimals, getServiceHabitatAnimals, getServiceAnimalsNoVcunes } from "../services/get.js";
 import { getServiceDevolutions, getServiceLossMoney, getServiceBalanceDay, getServiceSellsMonth } from "../services/get.js";
-import {  getServiceStaffBySalary, getServiceStaffOlder, getServiceTacoInOrder, getServiceBestMonth, getServiceEmergenciesByVet, getServiceIncidentsByAnimal, getServiceEmergenciesBetweenDates } from "../services/get.js"; 
+import {  getServiceStaffBySalary, getServiceStaffOlder, getServiceTacoInOrder, getServiceBestMonth, getServiceEmergenciesByVet, getServiceIncidentsByAnimal, getServiceEmergenciesBetweenDates, getServiceStaffBestSeller } from "../services/get.js"; 
 export const getHabitatsController = async (req, res) => {
     try {
         const {id} = req.query;
@@ -213,6 +213,15 @@ export const BetweenDatesController = async (req, res) => {
     try {
         const {start, end} = req.query;
         const sellsMonth = await getServiceEmergenciesBetweenDates(start, end);
+        res.status(200).json(sellsMonth);
+    } catch(err) {
+        res.status(500).send(err)
+    }
+}
+
+export const bestSellerController = async (req, res) => {
+    try {
+        const sellsMonth = await getServiceStaffBestSeller();
         res.status(200).json(sellsMonth);
     } catch(err) {
         res.status(500).send(err)
