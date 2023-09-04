@@ -103,6 +103,7 @@ db.Habitats.insertMany([
 db.Animals.insertMany([
     {
         "id": siguienteId("Animals"),
+        "id_staff": 3, 
         "animal_name": "Simba",
         "species": "Lion",
         "aprox_age": 8,
@@ -115,6 +116,7 @@ db.Animals.insertMany([
       },
       {
         "id": siguienteId("Animals"),
+        "id_staff": 3, 
         "animal_name": "Koko",
         "species": "Gorilla",
         "aprox_age": 15,
@@ -127,6 +129,7 @@ db.Animals.insertMany([
       },
       {
         "id": siguienteId("Animals"),
+        "id_staff": 2, 
         "animal_name": "Nemo",
         "species": "Clownfish",
         "aprox_age": 2,
@@ -139,6 +142,7 @@ db.Animals.insertMany([
       },
       {
         "id": siguienteId("Animals"),
+        "id_staff": 5, 
         "animal_name": "Frost",
         "species": "Polar Bear",
         "aprox_age": 10,
@@ -151,6 +155,7 @@ db.Animals.insertMany([
       },
       {
         "id": siguienteId("Animals"),
+        "id_staff": 3, 
         "animal_name": "Sandy",
         "species": "Camel",
         "aprox_age": 6,
@@ -163,6 +168,7 @@ db.Animals.insertMany([
       },
       {
         "id": siguienteId("Animals"),
+        "id_staff": 3, 
         "animal_name": "Feathers",
         "species": "Eagle",
         "aprox_age": 4,
@@ -174,6 +180,7 @@ db.Animals.insertMany([
       },
       {
         "id": siguienteId("Animals"),
+        "id_staff": 3, 
         "animal_name": "Slither",
         "species": "Python",
         "aprox_age": 6,
@@ -186,6 +193,7 @@ db.Animals.insertMany([
       },
       {
         "id": siguienteId("Animals"),
+        "id_staff": 4, 
         "animal_name": "Charlie",
         "species": "Chimpanzee",
         "aprox_age": 12,
@@ -197,6 +205,7 @@ db.Animals.insertMany([
       },
       {
         "id": siguienteId("Animals"),
+        "id_staff": 3, 
         "animal_name": "Fluffy",
         "species": "Rabbit",
         "aprox_age": 2,
@@ -209,6 +218,7 @@ db.Animals.insertMany([
       },
       {
         "id": siguienteId("Animals"),
+        "id_staff": 2, 
         "animal_name": "Hiss",
         "species": "Cobra",
         "aprox_age": 5,
@@ -220,6 +230,7 @@ db.Animals.insertMany([
       }, 
       {
         "id": siguienteId("Animals"),
+        "id_staff": 4, 
         "animal_name": "Luna",
         "species": "Wolf",
         "aprox_age": 4,
@@ -232,6 +243,7 @@ db.Animals.insertMany([
       },
       {
         "id": siguienteId("Animals"),
+        "id_staff": 2, 
         "animal_name": "Patches",
         "species": "Giraffe",
         "aprox_age": 7,
@@ -243,6 +255,7 @@ db.Animals.insertMany([
       },
       {
         "id": siguienteId("Animals"),
+        "id_staff": 2, 
         "animal_name": "Rusty",
         "species": "Rattlesnake",
         "aprox_age": 3,
@@ -255,6 +268,7 @@ db.Animals.insertMany([
       },
       {
         "id": siguienteId("Animals"),
+        "id_staff": 4, 
         "animal_name": "Oscar",
         "species": "Orangutan",
         "aprox_age": 10,
@@ -266,6 +280,7 @@ db.Animals.insertMany([
       },
       {
         "id": siguienteId("Animals"),
+        "id_staff": 3, 
         "animal_name": "Spike",
         "species": "Porcupine",
         "aprox_age": 5,
@@ -278,6 +293,7 @@ db.Animals.insertMany([
       },
       {
         "id": siguienteId("Animals"),
+        "id_staff": 3, 
         "animal_name": "Ziggy",
         "species": "Zebra",
         "aprox_age": 6,
@@ -289,6 +305,7 @@ db.Animals.insertMany([
       },
       {
         "id": siguienteId("Animals"),
+        "id_staff": 3, 
         "animal_name": "Bubbles",
         "species": "Dolphin",
         "aprox_age": 12,
@@ -301,6 +318,7 @@ db.Animals.insertMany([
       },
       {
         "id": siguienteId("Animals"),
+        "id_staff": 5, 
         "animal_name": "Sasha",
         "species": "Jaguar",
         "aprox_age": 8,
@@ -312,6 +330,7 @@ db.Animals.insertMany([
       },
       {
         "id": siguienteId("Animals"),
+        "id_staff": 5,
         "animal_name": "Rocky",
         "species": "Kangaroo",
         "aprox_age": 3,
@@ -324,6 +343,7 @@ db.Animals.insertMany([
       },
       {
         "id": siguienteId("Animals"),
+        "id_staff": 5,
         "animal_name": "Cleo",
         "species": "Cheetah",
         "aprox_age": 5,
@@ -569,7 +589,7 @@ db.staff.insertMany([
         }
       },
       {
-        "id": 10,
+        "id": siguienteId("staff"),
         "full_name": "Amanda Wilson",
         "start_contract": new Date("2022-08-10"),
         "end_contract": new Date("2023-03-29"),
