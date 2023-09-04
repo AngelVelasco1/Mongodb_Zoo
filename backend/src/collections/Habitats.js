@@ -48,7 +48,7 @@ class Habitat{
     async updateHabitat(id, data){
         try {
             const connect = await this.connection();
-            let body = {...data, "next_maintenance": new Date(date.next_maintenance)};
+            let body = {...data, "next_maintenance": new Date(data.next_maintenance)};
             const result = await connect.updateOne(
                 {"id": parseInt(id)},
                 {$set: body}
