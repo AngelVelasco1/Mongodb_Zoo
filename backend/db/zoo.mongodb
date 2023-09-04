@@ -9,6 +9,46 @@ db.counters.insertMany([
     { counter: "taco_shopId", sequence_value: 0 },
     { counter: "emergenciesId", sequence_value: 0 }
 ]);
+db.createCollection("session", {
+    capped: true,
+    size: 2000,
+    max: 10,
+    validator: {
+        $jsonSchema:{
+            bsonType: "object",
+            additionalProperties: false,
+
+            properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
+                name: {
+                    bsonType: "string"
+                },
+                password: {
+                    bsonType: "string"
+                },
+                rol: {
+                    bsonType: "string"
+                },
+                permisos: { 
+                    bsonType: 'object',
+                    description: "Ingrese los permisos",
+                    properties: {
+                        "/api": {
+                            bsonType: "array",
+                            items: {
+                                bsonType: "string",
+                                description: "Ingrese la version autorizada",
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+})
+
 db.createCollection("Habitats", {
     capped: true,
     size: 10000,

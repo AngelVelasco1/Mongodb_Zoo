@@ -1,14 +1,14 @@
 import { Router } from "express";
 import { putHabitatController, putAnimalsController, putEmergenciesController, putServicesController, putStaffsController, putTacoShopController } from "../controllers/putData.js";
 import { animalsPostValidate, servicesPostValidate, habitatsPostValidate, staffPostValidate, taco_shopPostValidate,  emergenciesPostValidate} from "../middlewares/resultValidate.js";
-import { animalsDtoV1, servicesDtoV1, habitatsDtoV1, staffDtoV1, taco_shopDtoV1, emergenciesDtoV1 } from "../middlewares/dataValidate.js";
+import { animalsDtoV1, servicesDtoV1, habitatsDtoV1, staffsDtoV1, taco_shopDtoV1, emergenciesDtoV1 } from "../middlewares/dataValidate.js";
 import passportHelper from "../helpers/passport.js";
 import routesVersioning from "express-routes-versioning";
 
 export const putInitRoute = () => {
     const app = Router();
-    const version = routesVersioning();
-    app.use(passportHelper.authenticate("bearer"), {session: false});
+    const version = routesVersioning();    
+    app.use(passportHelper.authenticate("bearer", {session: false}));
 
     app.put("/habitats", habitatsDtoV1, version({
         "^1.0.0": habitatsPostValidate,
@@ -30,7 +30,7 @@ export const putInitRoute = () => {
         "^2.0.0": servicesPostValidate,
     }), putServicesController)
 
-    app.put("/staffs", staffDtoV1, version({
+    app.put("/staffs", staffsDtoV1, version({
         "^1.0.0": staffPostValidate,
         "^2.0.0": staffPostValidate,
     }), putStaffsController)
@@ -39,4 +39,5 @@ export const putInitRoute = () => {
         "^1.0.0": taco_shopPostValidate,
         "^2.0.0": taco_shopPostValidate,
     }), putTacoShopController)
+    return app;
 }

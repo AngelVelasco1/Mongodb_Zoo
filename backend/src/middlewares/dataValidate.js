@@ -48,8 +48,8 @@ export const animalsDtoV1 = [
 
     check(`${animal.vacune}`)
         .notEmpty().withMessage(`${animal.vacune} is required`)
-        .isInt().withMessage(`${animal.vacune} should be an interger`)
-        .oneOf([0, 1]).withMessage(`${animal.vacune} should be 0 or 1`),
+        .isInt().withMessage(`${animal.vacune} should be an interger`),
+      /*   .oneOf([0, 1]).withMessage(`${animal.vacune} should be 0 or 1`), */
 
     check(`${animal.entry_date}`)
         .isDate().optional().withMessage(`${animal.entry_date} should be a date`),
@@ -242,9 +242,8 @@ export const taco_shopDtoV1 = [
 
     check(`${taco_shop.ticket_type}`)
         .notEmpty().withMessage(`${taco_shop.ticket_type} is required`)
-        .isString().withMessage(`${taco_shop.ticket_type} should be a string`)
-        .oneOf(["Regular", "Child", "Student", "Senior"]).withMessage(`${taco_shop.ticket_type} should be 'Regular' or 'Child' or 'Student' or 'Senior'`),
-
+        .isString().withMessage(`${taco_shop.ticket_type} should be a string`),
+       /*  .oneOf(["Regular", "Child", "Student", "Senior"]).withMessage(`${taco_shop.ticket_type} should be 'Regular' or 'Child' or 'Student' or 'Senior'`),*/
     check(`${taco_shop.ticket_price}`)
         .notEmpty().withMessage(`${taco_shop.ticket_price} is required`)
         .isInt({ min: 1, max: 10 }).withMessage(`${taco_shop.ticket_price} should be an interger between 1 and 10`),
@@ -279,5 +278,5 @@ export const emergenciesDtoV1 = [
     check(`${emergencies.emergency_type}`)
         .notEmpty().withMessage(`${emergencies.emergency_type} is required`)
         .isString().withMessage(`${emergencies.emergency_type} should be a string`)
-        .oneOf(["Surgical", "Medical"]).withMessage(`${emergencies.emergency_type} should be 'Surgical' or 'Medical'`),
+       /*  .oneOf(["Surgical", "Medical"]).withMessage(`${emergencies.emergency_type} should be 'Surgical' or 'Medical'`), */
 ]

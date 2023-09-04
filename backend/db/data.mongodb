@@ -8,6 +8,42 @@ function siguienteId(coleccion) {
     return sequenceDocument.sequence_value;
 };
 
+db.session.insertMany([
+  {
+    "name": "Pedro",
+    "password": "admin",
+    "rol": "admin",
+    "permisos": {
+      "/api/use": ["1.0.0", "2.0.1", "2.0.2", "2.0.3", "GET", "POST", "PUT", "DELETE"]
+    }
+  },
+  {
+    "name": "Camilo",
+    "password": "comercial",
+    "rol": "gerente area comecial",
+    "permisos": {
+      "/api/use": ["2.0.1", "GET", "POST", "PUT", "DELETE"]
+    }
+  },
+  {
+    "name": "Farid",
+    "password": "animales",
+    "rol": "gerente area animal",
+    "permisos": {
+      "/api/use": ["2.0.2", "GET", "PUT"]
+    }
+  },
+  {
+    "name": "Roberto",
+    "password": "talento",
+    "rol": "gerente de talento humano",
+    "permisos": {
+      "/api/use": ["2.0.3", "GET", "POST", "PUT"]
+    }
+  }
+
+])
+
 db.Habitats.insertMany([
     {
         "id": siguienteId("Habitats"),
