@@ -1,0 +1,906 @@
+
+use("zoo_db");
+db.createCollection("counters");
+db.counters.insertMany([
+    { counter: "HabitatsId", sequence_value: 0 },
+    { counter: "ServicesId", sequence_value: 0 },
+    { counter: "AnimalsId", sequence_value: 0 },
+    { counter: "staffId", sequence_value: 0 },
+    { counter: "taco_shopId", sequence_value: 0 },
+    { counter: "emergenciesId", sequence_value: 0 }
+]);
+db.createCollection("Habitats", {
+    capped: true,
+    size: 10000,
+    max: 50,
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            additionalProperties: false,
+            required: [ "id", "name", "description", "weather", "residents", "assigned_personnel", "next_maintenance"],
+            properties: {
+                _id:{
+                    bsonType: "objectId"
+                },
+                id: {
+                    bsonType: "int"
+                },
+                name: {
+                    bsonType: "string"
+                },
+                description: {
+                    bsonType: "string"
+                },
+                weather: {
+                    bsonType: "string"
+                },
+                residents:{
+                    bsonType: "array",
+                    items: {
+                        bsonType: "string"
+                    }
+                },
+                assigned_personnel: {
+                    bsonType: "int"
+                },
+                next_maintenance: {
+                    bsonType: "date"
+                }
+            }
+        }
+    }
+});
+db.createCollection("Services", {
+    capped: true,
+    size: 10000,
+    max: 100,
+    validator: {
+        $jsonSchema:{
+            bsonType: "object",
+            additionalProperties: false,
+            required: ["id", "shop" ,"product_name", "id_staff", "date", "amount", "price"],
+            properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
+                id:{
+                    bsonType: "int"
+                }, 
+                shop:{
+                    bsonType: "string"
+                } ,
+                product_name:{
+                    bsonType: "string"
+                }, 
+                id_staff:{
+                    bsonType: "int"
+                }, 
+                date:{
+                    bsonType: "date"
+                }, 
+                amount:{
+                    bsonType: "int"
+                }, 
+                price:{
+                    bsonType: "int"
+                },
+                devolutions: {
+                    bsonType: "int"
+                }, 
+                reason: {
+                    bsonType: "string"
+                },
+                refund: {
+                    bsonType: "int"
+                }
+            }
+        }
+    }
+});
+db.createCollection("Animals", {
+    capped: true,
+    size: 30000,
+    max: 200,
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            additionalProperties: false,
+            required: ["id", "id_staff" ,"animal_name", "species", "aprox_age", "location", "origin", "vacune", "reason"],
+            properties: {
+                _id: {
+                    bsonType: "objectId"
+                }, 
+                id:{
+                    bsonType: "int"
+                }, 
+                id_staff: {
+                    bsonType: "int"
+                },
+                animal_name: {
+                    bsonType: "string"
+                },
+                species: {
+                    bsonType: "string"
+                },
+                aprox_age: {
+                    bsonType: "int"
+                },
+                location: {
+                    bsonType: "string"
+                },
+                descendents: {
+                    bsonType: "array",
+                    items: {
+                        bsonType: "string"
+                    }
+                },
+                origin: {
+                    bsonType: "string"
+                },
+                vacune: {
+                    bsonType: "int"
+                },
+                entry_date: {
+                    bsonType: "date"
+                },
+                death_date: {
+                    bsonType: "date"
+                },
+                reason: {
+                    bsonType: "string"
+                }
+
+            }
+        }
+    }
+}); 
+db.createCollection("staff", {
+    capped: true, 
+    size: 20000,
+    max: 100,
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            additionalProperties: false,
+            required: ["id",
+                "full_name",
+                "start_contract",
+                "salary",
+                "eps",
+                "phone_number",
+                "emergency_contact"],
+            properties: {
+                _id: {
+                    bsonType: "objectId"
+                }, 
+                id: {
+                    bsonType: "int"
+                },
+                full_name: {
+                    bsonType: "string"
+                },
+                start_contract: {
+                    bsonType: "date"
+                },
+                end_contract: {
+                    bsonType: "date"
+                },
+                salary: {
+                    bsonType: "number"
+                },
+                eps: {
+                    bsonType: "string"
+                },
+                phone_number: {
+                    bsonType: "number"
+                },
+                emergency_contact: {
+                    bsonType: "object",
+                    required: ["contact_name", "relationship", "contact_number"],
+                    properties: {
+                        contact_name: {
+                            bsonType: "string"
+                        },
+                        relationship: {
+                            bsonType: "string"
+                        }, 
+                        contact_number: {
+                            bsonType: "number"
+                        }
+                    }
+                }
+            }
+        }
+    }
+});
+db.createCollection("taco_shop", {
+    capped: true,
+    size: 20000,
+    max: 1000,
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            additionalProperties: false,
+            required: ["id",
+                "amount",
+                "date",
+                "seller",
+                "ticket_type",
+                "ticket_price",],
+            properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
+                id: {
+                    bsonType: "int"
+                },
+                amount: {
+                    bsonType: "int"
+                },
+                date: {
+                    bsonType: "date"
+                },
+                seller:{
+                    bsonType: "string"
+                },
+                ticket_type: {
+                    bsonType: "string"
+                },
+                ticket_price: {
+                    bsonType: "int"
+                }
+            }
+        }
+    }
+});
+db.createCollection("emergencies", {
+    capped: true,
+    size: 20000,
+    max: 1000,
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            additionalProperties: false,
+            required: ["id",
+                "id_animal",
+                "id_vet",
+                "description",
+                "date",
+                "emergency_type"],
+            properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
+                id: {
+                    bsonType: "int"
+                },
+                id_animal: {
+                    bsonType: "int"
+                },
+                id_vet: {
+                    bsonType: "int"
+                },
+                description:{
+                    bsonType: "string"
+                },
+                date: {
+                    bsonType: "date"
+                },
+                emergency_type: {
+                    bsonType: "string"
+                }
+            }
+        }
+    }
+})
+
+/* Consultas específicas */
+
+// 1. obtener los animales ingresados en un año específico
+use("zoo_db");
+db.Animals.aggregate([
+    {
+        $addFields: {
+          entryYear: { $year: "$entry_date" }
+        }
+    },
+    {
+        $match: {
+            entryYear: 2020
+        }  
+    },
+    {
+        $project: {
+            _id: 0,
+            id_animal: "$id",
+            entry_year: "$entryYear", 
+            nombre: "$animal_name",
+            specie: "$species",
+            age: "$aprox_age",
+            habitat: "$location",
+            type: "$origin",
+            vacunes: "$vacune",
+            descendence: "$descendents",
+            entry_day: "$entry_date",
+            death: "$death_date",
+            more_info: "$reason"
+        }
+    }
+]);
+
+//2. traer todos los animales que han fallecido.
+use("zoo_db");
+db.Animals.aggregate([
+    {
+        $match: {
+            death_date: {
+                $exists: true
+          }
+        }  
+    },
+    {
+        $project: {
+            _id: 0,
+            id_animal: "$id",
+            entry_year: "$entryYear", 
+            nombre: "$animal_name",
+            specie: "$species",
+            age_lived: "$aprox_age",
+            entry_zoo: "$entry_date",
+            death: "$death_date",
+            death_cause: "$reason"
+        }
+    }
+]);
+
+// 3. obtener todos los animales bajo el cargo de un cuidador en específico. ( la consulta protege los datos de la base de datos y si encuentra un animal muerto en el registro no lo muestra, ya que ya no es una responsabilidad del cuidador. Y si por algun motivo un cuidador ya terminó contrato con la empresa, tampoco lo mostrará)
+use("zoo_db");
+db.staff.aggregate([
+    {
+        $match: {
+            id: 3
+        }
+    },
+    {
+        $match: {
+            end_contract: {
+                $exists: false
+            }
+        }
+    },
+    {
+        $lookup: {
+          from: "Animals",
+          localField: "id",
+          foreignField: "id_staff",
+          pipeline: [
+            { 
+                $project: {
+                  _id: 0,
+                  id_animal: "$id",
+                  nombre: "$animal_name",
+                  specie: "$species",
+                  age: "$aprox_age",
+                  habitat: "$location",
+                  type: "$origin",
+                  vacunes: "$vacune",
+                  entry: "$entry_date",
+                  death: "$death_date",
+                  reason: "$reason"
+                }
+            },
+            { $match: {
+               death: {
+                    $exists: false
+              }
+            }}
+          ],
+          as: "AnimalsAssigned"
+        }
+    },
+    {
+        $project: {
+          _id: 0,
+          id_staff: "$id",
+          name: "$full_name",
+          start: "$start_contract",
+          salary_cost: "$salary",
+          EPS: "$eps",
+          contact: "$phone_number",
+          emergency_info: "$emergency_contact",
+          emergency_info: {
+            name: "$emergency_contact.contact_name",
+            relationship: "$emergency_contact.relationship",
+            number: "$emergency_contact.contact_number"
+          },
+          animals_assigned: "$AnimalsAssigned"
+        }
+    }
+]);
+
+// 4. obtener los animales que están actualmente viviendo en un habitat en específico.
+use("zoo_db");
+db.Habitats.aggregate([
+    {
+        $match: {
+          id: 1
+        }
+    },
+    {
+        $lookup: {
+          from: "Animals",
+          localField: "name",
+          foreignField: "location",
+          pipeline: [
+            { 
+                $project: {
+                  _id: 0,
+                  id_animal: "$id",
+                  nombre: "$animal_name",
+                  specie: "$species",
+                  age: "$aprox_age",
+                  habitat: "$location",
+                  type: "$origin",
+                  vacunes: "$vacune",
+                  entry: "$entry_date",
+                  death: "$death_date",
+                  reason: "$reason"
+                }
+            },
+            { $match: {
+               death: {
+                    $exists: false
+              }
+            }}
+          ],
+          as: "animals"
+        }
+    },
+    {
+        $project: {
+          _id: 0,
+          habitat_id: "$id",
+          habitat: "$name",
+          weather_required: "$weather",
+          maintenance_date: "$next_maintenance",
+          main_staff: "$assigned_personnel",
+          habitat_description: "$description",
+          residents: "$animals"
+        }
+    }
+]);
+
+// 5. Traer todos los animales que no tienen vacunas.(si el animal ya murió simplemente no lo muestra)
+use("zoo_db");
+db.Animals.aggregate([
+    { 
+        $match:{
+            vacune: { $eq: 0}
+        }
+    },
+    { 
+        $match: {
+            death_date: {
+                $exists: false
+            }
+        }
+    },
+    { 
+        $project: {
+          _id: 0,
+          id_animal: "$id",
+          vacunes: "$vacune",
+          nombre: "$animal_name",
+          specie: "$species",
+          age: "$aprox_age",
+          habitat: "$location",
+          type: "$origin",
+          entry: "$entry_date",
+          info: "$reason"
+        }
+    },
+]);
+
+// 6. Traer todos las registros de servicio que tuvieron un rembolso y la razón
+use("zoo_db");
+db.Services.aggregate([
+    {
+        $match: {
+            devolutions: {
+                $exists: true
+            }
+        }
+    },
+    {
+        $project: {
+          _id: 0,
+          ref_sell: "$id",
+          shop: "$shop",
+          returned_product: "$product_name",
+          amount: "$devolutions",
+          total_refunded: "$refund",
+          reason: "$reason"
+        }
+    }
+]);
+
+// 7. Calcular cuanto dinero en total en un mes específico se “perdió” en los refounds amount*price - refund.
+use("zoo_db");
+db.Services.aggregate([
+    {
+        $project: {
+            total_factura: {
+                $multiply: [ "$amount", "$price" ]
+            },
+            _id: "$_id",
+            refund: "$refund",
+            date: "$date"
+        }
+    },
+    {
+      $group: {
+        _id: {
+          $month: "$date"
+        },
+        total_ventas: {
+          $sum: "$total_factura"  
+        },
+        total_refund: {
+          $sum: "$refund"
+        }
+      }
+    },
+    {
+        $match: {
+          _id: { $eq: 8 }
+        }
+    },
+    {
+        $project: {
+          "month": "$_id",
+          _id: 0,
+          "total_sells": "$total_ventas",
+          "total_refund": "$total_refund",
+          "neto_win": {
+            $subtract: [ "$total_ventas", "$total_refund"]
+          }
+        }
+    }
+]);
+
+// 8. Calcular el total de ingresos de un día específico por taquillería.
+use("zoo_db");
+db.taco_shop.aggregate([
+    {
+        $project: {
+            total_factura: {
+                $multiply: [ "$amount", "$ticket_price" ]
+            },
+            _id: "$_id",
+            date: "$date"
+        }
+    },
+    {
+        $group: {
+          _id:  "$date",
+          total_ventas: {
+            $sum: "$total_factura"  
+          }
+        }
+    },
+    {
+        $match: {
+            _id: { $eq: new Date("2023-08-01") }
+        }
+    },
+    {
+        $project: {
+          "day_search": "$_id",
+          _id: 0,
+          "total_sells_taco": "$total_ventas"
+        }
+    }
+])
+
+// 9. Calcular el total de ingresos en un mes específico en taquillería y servicios.
+use("zoo_db");
+db.Services.aggregate([
+    {
+        $project: {
+            total_factura: {
+                $multiply: [ "$amount", "$price" ]
+            },
+            _id: "$_id",
+            refund: "$refund",
+            date: "$date"
+        }
+    },
+    {
+      $group: {
+        _id: {
+          $month: "$date"
+        },
+        total_ventas: {
+          $sum: "$total_factura"  
+        },
+        total_refund: {
+          $sum: "$refund"
+        }
+      }
+    },
+    {
+        $match: {
+            _id: { $eq: 9 }
+        }
+    },
+    {
+        $project: {
+          "month": "$_id",
+          _id: 0,
+          "total_sells_services": {
+            $subtract: [ "$total_ventas", "$total_refund"]
+          }
+        }
+    }
+]);
+
+use("zoo_db");
+db.taco_shop.aggregate([
+    {
+        $project: {
+            total_factura: {
+                $multiply: [ "$amount", "$ticket_price" ]
+            },
+            _id: "$_id",
+            date: "$date"
+        }
+    },
+    {
+        $group: {
+          _id: {
+            $month: "$date"
+          },
+          total_ventas: {
+            $sum: "$total_factura"  
+          }
+        }
+    },
+    {
+        $match: {
+            _id: { $eq: 8 }
+        }
+    },
+    {
+        $project: {
+          "month": "$_id",
+          _id: 0,
+          "total_sells_taco": "$total_ventas"
+        }
+    }
+])
+
+// 10. Mirar cual el empleado con más ventas en un mes en específico. con info del empleado y sus ventas.
+use("zoo_db");
+db.staff.aggregate([
+    {
+        $lookup: {
+          from: "Services",
+          localField: "id",
+          foreignField: "id_staff",
+          as: "services",
+        }
+    },
+    {
+        $unwind: "$services"
+    },
+    {
+        $group: {
+            _id:  "$id",
+            sales: {
+                $sum: {
+                    $multiply: [
+                        { $subtract: ["$amount", "$devolutions"] },
+                        "$price"
+                    ]
+                }
+            },
+            employee: {$first :"$$ROOT" }
+        }
+    },
+    {
+        $sort: {
+            sales: -1
+        }
+    },
+    {
+        $limit: 1
+    },
+    {
+        $project: {
+            _id: 0,
+            id: "$staff_info.id",
+            full_name: "$staff_info.full_name",
+            start_contract: "$staff_info.start_contract",
+            salary: "$staff_info.salary",
+            eps: "$staff_info.eps",
+            phone_number: "$staff_info.phone_number",
+            sales: "$sales"
+        }
+    }
+])
+
+
+// 11. obtener los empleados por salario.
+db.staff.aggregate([
+    {
+        $match: {
+            salary: { $eq: 40000 } // El valor se cambiaria por el párametro del usuario
+        }
+    },
+    {
+        $sort: {
+            salary: -1
+        }
+    },
+    {
+        $project: {
+            _id: 0,
+            id: 0,
+            emergency_contact: 0,
+            eps: 0
+        }
+    }
+])
+
+// 12. Traer el empleado con mayor antiguedad que sigua trabajando.
+use("zoo_db");
+db.staff.aggregate([
+    {
+        $match: {
+            "end_contract": {$exists: false}
+        }
+    },
+    {
+        $sort: {
+            "start_contract": -1
+        }
+    },
+    {
+        $limit: 1
+    },
+    {
+        $project: {
+            _id: 0,
+            full_name: 1,
+            start_contract: 1,
+            salary: 1,
+            eps: 1,
+            phone_number: 1
+        }
+    }
+])
+
+// 13. ordenar por tipo de ticket y la cantidad total.
+use("zoo_db");
+db.taco_shop.aggregate([
+    {
+        $group: {
+            _id: "$ticket_type",
+            total: { $sum: "$amount" }
+        }
+    },
+    {
+        $sort: {
+            total: -1,
+        }
+    },
+    {
+        $project: {
+            _id: 0,
+            tickect_type: "$_id",
+            total: "$total"
+        }
+    }
+]);
+
+// 14. Identificar cual fue el mes en que mas se vendieron cosas. 
+use("zoo_db");
+db.Services.aggregate([
+    {
+        $project: {
+            month: { $substr: ["$date", 5, 2] },  //? saca el mes del string
+            amount: 1,
+            devolutions: 1,
+            price: 1   
+        }
+    },
+    {
+        $group: {
+            _id:  "$month",
+            sales: {    
+                $sum: {
+                    $multiply: [
+                        { $subtract: ["$amount", "$devolutions"] },
+                        "$price"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        $sort: {
+            sales: -1
+        }
+    },
+    {
+        $limit: 1
+    },
+    {
+        $project: {
+            _id: 0,
+            "month_number": "$_id",
+            sales: 1,
+        }
+    }
+])
+
+// 15. traer todas los registros de emergencias que ha atendido un veterinario en específico.
+use("zoo_db");
+db.emergencies.aggregate([
+    {
+        $match: {
+            id_vet: 1
+        }
+
+    },
+    {
+        $project: {
+            _id: 0,
+            id: 0,
+            id_vet: 0
+        }
+    }
+])
+
+// 16. traer todos los incidentes que ha tenido un animal en su historia.
+use("zoo_db");
+db.Animals.aggregate([
+    {
+        $lookup: {
+            from: "emergencies",
+            localField: "id",
+            foreignField: "id_animal",
+            as: "incidents"
+        }
+    },
+    {
+        $unwind: "$incidents"
+    },
+    {
+        $match: {
+            "incidents.id_animal": 8
+        }
+    },
+    {
+        $project: {
+            _id: 0,
+            id: 0,
+            "incidents.id": 0,
+            "incidents.id_animal": 0,
+            "incidents._id": 0,
+            "incidents.id_vet": 0
+
+        }
+    }
+])
+
+// 17. traer todas las emergencias ocurridas en un determinado plazo de fechas .
+use("zoo_db");
+db.emergencies.aggregate([
+    {
+        $match: {
+            date: { $gte: new Date("2023-08-05"), $lte: new Date("2023-08-20") }
+        }
+    }
+])
+
